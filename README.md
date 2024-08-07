@@ -1,20 +1,16 @@
 # HoltekLib
 
-# HoltekLib
-
 **HoltekLib** is a comprehensive collection of lightweight and practical libraries for Holtek 8-bit microcontrollers. These libraries are written in C and utilize assembly registers as specified in the Holtek datasheets, specifically designed for embedded applications. The goal of this collection is to provide low-volume, high-efficiency libraries.
 
 ## Features
 
 - **GPIO Support**: Control of general-purpose input and output.
-- **RCC Management**: Control of Reset and Clock functions for power management.
-- **USART**: Serial communication with support for data transmission and reception.
+- **RCC Management**: Control of Reset and Clock functions for power management and watchdog timer functionality.
 - **ADC Functionality**: Read analog signals through Analog-to-Digital Conversion.
+- **USART**: Serial communication with support for Hardware UART for data transmission and reception.
 - **EEPROM Support**: Access and manage EEPROM for non-volatile storage.
-- **Opamp Functionality**: Utilize operational amplifiers for signal processing.
 - **Timers**: 
-  - **Base Timers**: Configuration and use of Base Timers 0 & 1.
-  - **BTimer**: Functions for basic timer operations.
+  - **Base Timers and BTimer**: Configuration and use of Base Timers 0 & 1, along with functions for basic timer operations.
   - **Standard Type TM**: Support for Standard Type Timer operations.
   - **Periodic TM Operation**: Functionality for periodic timer tasks.
 - **NTC Support**: Integration with NTC thermistors for temperature sensing.
