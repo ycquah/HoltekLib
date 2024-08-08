@@ -4,8 +4,8 @@
 
 ## Features
 
-- **GPIO Support**: Control of general-purpose input and output.
 - **RCC Management**: Control of Reset and Clock functions for power management and watchdog timer functionality.
+- **GPIO Support**: Control of general-purpose input and output.
 - **ADC Functionality**: Read analog signals through Analog-to-Digital Conversion.
 - **USART**: Serial communication with support for Hardware UART for data transmission and reception.
 - **EEPROM Support**: Access and manage EEPROM for non-volatile storage.
