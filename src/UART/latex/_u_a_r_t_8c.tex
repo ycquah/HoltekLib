@@ -1,0 +1,93 @@
+\doxysection{UART.\+c File Reference}
+\hypertarget{_u_a_r_t_8c}{}\label{_u_a_r_t_8c}\index{UART.c@{UART.c}}
+
+
+Implementation of UART (Universal Asynchronous Receiver-\/\+Transmitter) functions. This file provides the definitions for initializing UART, transmitting and receiving data, and enabling/disabling UART interrupts. Author\+: Mohamad Khosravi \href{https://github.com/Mohamadkhosravi}{\texttt{ https\+://github.\+com/\+Mohamadkhosravi}} Date\+: 2024.  
+
+
+{\ttfamily \#include "{}UART.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a5530223c0938b039529eb79e648bf5f2}{UART\+\_\+\+Init}} (unsigned int baudrate)
+\begin{DoxyCompactList}\small\item\em Initializes the UART with a specified baud rate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a924f152ef31f5c02dd6e55dcec6ac7ba}{UART\+\_\+\+Transmit}} (char data)
+\begin{DoxyCompactList}\small\item\em Transmits a single character via UART. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_u_a_r_t_8c_a051d1b332eceb5bace0ad976cf925f26}{UART\+\_\+\+Receive}} (void)
+\begin{DoxyCompactList}\small\item\em Receives a single character via UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a75f62867b9e7293f34370391e2613114}{UART\+\_\+\+Enable\+Interrupts}} (void)
+\begin{DoxyCompactList}\small\item\em Enables UART interrupts for receiving and transmitting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a774fec8d9b31cb823b972b960f4a2f29}{UART\+\_\+\+Disable\+Interrupts}} (void)
+\begin{DoxyCompactList}\small\item\em Disables all UART interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of UART (Universal Asynchronous Receiver-\/\+Transmitter) functions. This file provides the definitions for initializing UART, transmitting and receiving data, and enabling/disabling UART interrupts. Author\+: Mohamad Khosravi \href{https://github.com/Mohamadkhosravi}{\texttt{ https\+://github.\+com/\+Mohamadkhosravi}} Date\+: 2024. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_a_r_t_8c_a774fec8d9b31cb823b972b960f4a2f29}\index{UART.c@{UART.c}!UART\_DisableInterrupts@{UART\_DisableInterrupts}}
+\index{UART\_DisableInterrupts@{UART\_DisableInterrupts}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{UART\_DisableInterrupts()}{UART\_DisableInterrupts()}}
+{\footnotesize\ttfamily \label{_u_a_r_t_8c_a774fec8d9b31cb823b972b960f4a2f29} 
+void UART\+\_\+\+Disable\+Interrupts (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables all UART interrupts. 
+
+This function disables all UART interrupts, including receiver and transmitter interrupts. \Hypertarget{_u_a_r_t_8c_a75f62867b9e7293f34370391e2613114}\index{UART.c@{UART.c}!UART\_EnableInterrupts@{UART\_EnableInterrupts}}
+\index{UART\_EnableInterrupts@{UART\_EnableInterrupts}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{UART\_EnableInterrupts()}{UART\_EnableInterrupts()}}
+{\footnotesize\ttfamily \label{_u_a_r_t_8c_a75f62867b9e7293f34370391e2613114} 
+void UART\+\_\+\+Enable\+Interrupts (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables UART interrupts for receiving and transmitting. 
+
+This function enables the receiver interrupt and the transmitter interrupts. \Hypertarget{_u_a_r_t_8c_a5530223c0938b039529eb79e648bf5f2}\index{UART.c@{UART.c}!UART\_Init@{UART\_Init}}
+\index{UART\_Init@{UART\_Init}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{UART\_Init()}{UART\_Init()}}
+{\footnotesize\ttfamily \label{_u_a_r_t_8c_a5530223c0938b039529eb79e648bf5f2} 
+void UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{unsigned int}]{baudrate}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the UART with a specified baud rate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em baudrate} & The baud rate for UART communication.\\
+\hline
+\end{DoxyParams}
+This function configures the UART pins, sets the UART mode, and calculates the baud rate register values based on the provided baud rate. \Hypertarget{_u_a_r_t_8c_a051d1b332eceb5bace0ad976cf925f26}\index{UART.c@{UART.c}!UART\_Receive@{UART\_Receive}}
+\index{UART\_Receive@{UART\_Receive}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{UART\_Receive()}{UART\_Receive()}}
+{\footnotesize\ttfamily \label{_u_a_r_t_8c_a051d1b332eceb5bace0ad976cf925f26} 
+int UART\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Receives a single character via UART. 
+
+\begin{DoxyReturn}{Returns}
+The received character, or an error code in case of an error.
+\end{DoxyReturn}
+This function waits until data is received and checks for errors such as parity, overrun, or framing errors before returning the received data. \Hypertarget{_u_a_r_t_8c_a924f152ef31f5c02dd6e55dcec6ac7ba}\index{UART.c@{UART.c}!UART\_Transmit@{UART\_Transmit}}
+\index{UART\_Transmit@{UART\_Transmit}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{UART\_Transmit()}{UART\_Transmit()}}
+{\footnotesize\ttfamily \label{_u_a_r_t_8c_a924f152ef31f5c02dd6e55dcec6ac7ba} 
+void UART\+\_\+\+Transmit (\begin{DoxyParamCaption}\item[{char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Transmits a single character via UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The character to be transmitted.\\
+\hline
+\end{DoxyParams}
+This function waits until the transmit buffer is empty and then sends the data through the UART. 

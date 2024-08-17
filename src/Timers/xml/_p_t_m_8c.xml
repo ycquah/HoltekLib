@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_p_t_m_8c" kind="file" language="C++">
+    <compoundname>PTM.c</compoundname>
+    <includes refid="_p_t_m_8h" local="no">PTM.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>PTM.c</label>
+        <link refid="_p_t_m_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PTM.h</label>
+        <link refid="_p_t_m_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Main.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_p_t_m_8c_1a27cedd67a08677ae8e5bdea30c4e8781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PTimerInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>PTimerInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the Pulse Timer Module (PTM). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function declarations.</para>
+<para>This function configures the PTM&apos;s clock, mode, output settings, and initializes the necessary registers.</para>
+<para><simplesect kind="return"><para>void </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PTM.c" line="25" column="6" bodyfile="PTM.c" bodystart="25" bodyend="88"/>
+        <references refid="_p_t_m_8h_1a99dd7f767c90f96c247a93afd8293bb9" compoundref="_p_t_m_8h" startline="132">PTM_CCRA_LOW_BYTE_MASK</references>
+      </memberdef>
+      <memberdef kind="function" id="_p_t_m_8c_1aa976c4bdb441e99a5d5d83783736698f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PWMSeter</definition>
+        <argsstring>(char status)</argsstring>
+        <name>PWMSeter</name>
+        <param>
+          <type>char</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Sets the PWM status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the PWM status (active or inactive)</para>
+<para>This function configures the PWM output state based on the provided status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status to set for the PWM (1 for active, 0 for inactive). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PTM.c" line="97" column="6" bodyfile="PTM.c" bodystart="97" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="_p_t_m_8c_1a3ad7889eebe85d00e5c521474b367d15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int readPTimer</definition>
+        <argsstring>(void)</argsstring>
+        <name>readPTimer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads the current value of the Pulse Timer Module (PTM). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the current value of the PTM timer.</para>
+<para>This function retrieves the current timer value from the PTM.</para>
+<para><simplesect kind="return"><para>The current timer value as an unsigned integer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PTM.c" line="136" column="14" bodyfile="PTM.c" bodystart="136" bodyend="140"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Implementation file for the PTM (Pulse Timer Module) for Holtek MCUs. This file contains the definitions of functions for initializing and using the PTM in embedded applications. Author: Mohamad Khosravi <ulink url="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</ulink> Date: 2024. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Obtain<sp/>a<sp/>copy<sp/>at<sp/>http://www.apache.org/licenses/LICENSE-2.0.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>basis,<sp/>without<sp/>warranties<sp/>or<sp/>conditions.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_p_t_m_8h" kindref="compound">PTM.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="_p_t_m_8c_1a27cedd67a08677ae8e5bdea30c4e8781" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_p_t_m_8c_1a27cedd67a08677ae8e5bdea30c4e8781" kindref="member">PTimerInit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>_ifs06<sp/>=<sp/>1;<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>interrupt<sp/>flag<sp/>for<sp/>PTM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>_ifs07<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>another<sp/>interrupt<sp/>flag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTPAU:<sp/>PTM<sp/>Counter<sp/>Pause<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0:<sp/>Run,<sp/>1:<sp/>Pause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptpau<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>counter<sp/>to<sp/>run<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>PTM<sp/>Counter<sp/>Clock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptck0<sp/>=<sp/>PTIMER_CLOCK<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptck1<sp/>=<sp/>(PTIMER_CLOCK<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptck2<sp/>=<sp/>(PTIMER_CLOCK<sp/>&gt;&gt;<sp/>2)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTON:<sp/>PTM<sp/>Counter<sp/>On/Off<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>_pton<sp/>=<sp/>PTM_COUNTER;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>on<sp/>PTM<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Operating<sp/>Mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptm0<sp/>=<sp/>PTM_MODE<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptm1<sp/>=<sp/>(PTM_MODE<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Pin<sp/>Function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptio0<sp/>=<sp/>PTM_PIN_FUNCTION<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptio1<sp/>=<sp/>(PTM_PIN_FUNCTION<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTM<sp/>Output<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptoc<sp/>=<sp/>PTM_OUTPUT_MODE;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Output<sp/>Polarity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptpol<sp/>=<sp/>PTM_OUTPUT_POLARITY;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Capture<sp/>Trigger<sp/>Source<sp/>Selection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptcapts<sp/>=<sp/>PTM_CAPTURE_TRIGGER;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Compare<sp/>Clear<sp/>Condition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptcclr<sp/>=<sp/>PTM_SELECT_CLEAR_COMPARE_MATCH;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>PTM<sp/>Counter<sp/>clear<sp/>condition<sp/>in<sp/>capture<sp/>input<sp/>mode<sp/>only</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#if<sp/>PTM_MODE<sp/>==<sp/>PTM_CAPTURE_INPUT_MODE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_pttclr0<sp/>=<sp/>PTM_SELECT_CLEAR_CONDITION_IN_CAPTURE_INPUT<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_pttclr1<sp/>=<sp/>(PTM_SELECT_CLEAR_CONDITION_IN_CAPTURE_INPUT<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>counter<sp/>value<sp/>latch<sp/>edge<sp/>flag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptvlf<sp/>=<sp/>COUNTER_VALUE_LATCH_EDGE;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Comparator<sp/>CCRA<sp/>Low<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptmal<sp/>=<sp/><ref refid="_p_t_m_8h_1a99dd7f767c90f96c247a93afd8293bb9" kindref="member">PTM_CCRA_LOW_BYTE_MASK</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Comparator<sp/>CCRA<sp/>High<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptmah<sp/>=<sp/>PTM_CCRA_HIGH_BYTE_MASK<sp/>&amp;<sp/>3;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Comparator<sp/>CCRB<sp/>Low<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptmbl<sp/>=<sp/>PTM_CCRB_LOW_BYTE_MASK;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Comparator<sp/>CCRB<sp/>High<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptmbh<sp/>=<sp/>PTM_CCRB_HIGH_BYTE_MASK<sp/>&amp;<sp/>3;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Comparator<sp/>CCRP<sp/>Low<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptmrpl<sp/>=<sp/>PTM_CCRP_LOW_BYTE_MASK;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>PTM<sp/>Comparator<sp/>CCRP<sp/>High<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>_ptmrph<sp/>=<sp/>PTM_CCRP_HIGH_BYTE_MASK<sp/>&amp;<sp/>3;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="_p_t_m_8c_1aa976c4bdb441e99a5d5d83783736698f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_p_t_m_8c_1aa976c4bdb441e99a5d5d83783736698f" kindref="member">PWMSeter</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>status)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTM<sp/>CCRA<sp/>Low<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptmal<sp/>=<sp/>37;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>low<sp/>byte<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTM<sp/>CCRA<sp/>High<sp/>Byte<sp/>Register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptmah<sp/>=<sp/>0b00;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>high<sp/>byte<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTM<sp/>CCRP<sp/>Low<sp/>Byte<sp/>Register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptmrpl<sp/>=<sp/>00;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>low<sp/>byte<sp/>for<sp/>CCRP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTM<sp/>CCRP<sp/>High<sp/>Byte<sp/>Register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptmrph<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>high<sp/>byte<sp/>for<sp/>CCRP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTPAU:<sp/>PTM<sp/>Counter<sp/>Pause<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0:<sp/>Run</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1:<sp/>Pause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptpau<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Run<sp/>the<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PTON:<sp/>PTM<sp/>Counter<sp/>On/Off<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0:<sp/>Off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1:<sp/>On</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_pton<sp/>=<sp/>1;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>on<sp/>the<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptpau<sp/>=<sp/>1;<sp/></highlight><highlight class="comment">//<sp/>Pause<sp/>the<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_pton<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>off<sp/>the<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptmrpl<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>low<sp/>byte<sp/>for<sp/>CCRP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ptmal<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>low<sp/>byte<sp/>for<sp/>CCRA</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="_p_t_m_8c_1a3ad7889eebe85d00e5c521474b367d15" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_p_t_m_8c_1a3ad7889eebe85d00e5c521474b367d15" kindref="member">readPTimer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>PTM<sp/>Timer<sp/>Value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((_ptmdl)<sp/>|<sp/>(_ptmdh<sp/>&lt;&lt;<sp/>8));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="PTM.c"/>
+  </compounddef>
+</doxygen>

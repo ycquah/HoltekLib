@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_s_t_m_8c" kind="file" language="C++">
+    <compoundname>STM.c</compoundname>
+    <includes refid="_s_t_m_8h" local="no">STM.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>STM.c</label>
+        <link refid="_s_t_m_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>STM.h</label>
+        <link refid="_s_t_m_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Main.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_s_t_m_8c_1ae35eda58bfb7343e1393dcc08eb80afe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void STimerInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>STimerInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the Standard Timer Module (STM). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function declarations.</para>
+<para>This function configures the STM counter, clock, mode, and other parameters according to the specified settings.</para>
+<para><simplesect kind="note"><para>Ensure to define the required macros (STIMER_CLOCK, STM_PERIOD, etc.) before calling this function.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>void</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="STM.c" line="28" column="6" bodyfile="STM.c" bodystart="28" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="_s_t_m_8c_1a0dd08f57088e8e1b7e2dcee08a764da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int readSTimer</definition>
+        <argsstring>(void)</argsstring>
+        <name>readSTimer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads the value of the Standard Timer Module (STM). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the current value of the STM timer.</para>
+<para>This function reads the current value of the STM timer.</para>
+<para><simplesect kind="return"><para>The current timer value as an unsigned integer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="STM.c" line="79" column="14" bodyfile="STM.c" bodystart="79" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Implementation of the STM (Standard Timer Module) for Holtek MCUs. This file provides functions to initialize the STM and read the timer value. Author: Mohamad Khosravi <ulink url="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</ulink> Date: 2024. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Obtain<sp/>a<sp/>copy<sp/>at<sp/>http://www.apache.org/licenses/LICENSE-2.0.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>basis,<sp/>without<sp/>warranties<sp/>or<sp/>conditions.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;STM.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="_s_t_m_8c_1ae35eda58bfb7343e1393dcc08eb80afe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_s_t_m_8c_1ae35eda58bfb7343e1393dcc08eb80afe" kindref="member">STimerInit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>STPAU:<sp/>STM<sp/>Counter<sp/>Pause<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0:<sp/>Run,<sp/>1:<sp/>Pause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>_stpau<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>counter<sp/>to<sp/>run<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>STM<sp/>Counter<sp/>Clock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>_stck0<sp/>=<sp/>STIMER_CLOCK<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>_stck1<sp/>=<sp/>(STIMER_CLOCK<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>_stck2<sp/>=<sp/>(STIMER_CLOCK<sp/>&gt;&gt;<sp/>2)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>STON:<sp/>STM<sp/>Counter<sp/>On/Off<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>_ston<sp/>=<sp/>STM_COUNTER;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>on<sp/>STM<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Comparator<sp/>P<sp/>Match<sp/>Period</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>_strp0<sp/>=<sp/>STM_PERIOD<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>_strp1<sp/>=<sp/>(STM_PERIOD<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>_strp2<sp/>=<sp/>(STM_PERIOD<sp/>&gt;&gt;<sp/>2)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Operating<sp/>Mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>_stm0<sp/>=<sp/>STM_MODE<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>_stm1<sp/>=<sp/>(STM_MODE<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Pin<sp/>Function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>_stio0<sp/>=<sp/>STM_PIN_FUNCTION<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>_stio1<sp/>=<sp/>(STM_PIN_FUNCTION<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>1;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Output<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>_stoc<sp/>=<sp/>STM_OUTPUT_MODE;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Output<sp/>Polarity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>_stpol<sp/>=<sp/>STM_OUTPUT_POLARITY;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>PWM<sp/>Duty/Period<sp/>Control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>_stdpx<sp/>=<sp/>STM_PWM_DUTY;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Compare<sp/>Clear<sp/>Condition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>_stcclr<sp/>=<sp/>STM_SELECT_CLEAR_COMPARE_MATCH;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Comparator<sp/>CCRA<sp/>Low<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>_stmal<sp/>=<sp/>STM_CCRA_LOW_BYTE_MASK;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>STM<sp/>Comparator<sp/>CCRA<sp/>High<sp/>Byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>_stmah<sp/>=<sp/>STM_CCRA_HIGH_BYTE_MASK<sp/>&amp;<sp/>3;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="_s_t_m_8c_1a0dd08f57088e8e1b7e2dcee08a764da8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_t_m_8c_1a0dd08f57088e8e1b7e2dcee08a764da8" kindref="member">readSTimer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>STM<sp/>Timer<sp/>Value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((_stmdl)<sp/>|<sp/>(_stmdh<sp/>&lt;&lt;<sp/>8));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="STM.c"/>
+  </compounddef>
+</doxygen>

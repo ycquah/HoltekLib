@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__p_t_m_8h" xml:lang="en-US">
+<title>PTM.h File Reference</title>
+<indexterm><primary>PTM.h</primary></indexterm>
+<para>
+
+<para>Header file for the Periodic Timer Module (PTM) for Holtek MCUs. This file defines the macros and function prototypes for the PTM, which is used for generating timing signals, PWM, and input capture functionalities. Author: Mohamad Khosravi <link xlink:href="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</link> Date: 2024. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;Main.h&gt;<?linebreak?></programlisting>Include dependency graph for PTM.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_p_t_m_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_p_t_m_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1aaf134c237701ac1711480b3286e9bc81"/>#define <emphasis role="strong">PT_SYS_DIVIDE_4</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Counter Clock Selection This section defines the clock sources for the PTM counter. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1aab6560fef9ad063652fe756b39fd387e"/>#define <emphasis role="strong">PT_SYS</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a516b5dfcd8ffaa1fa2acba360bf1349b"/>#define <emphasis role="strong">PT_H_DIVIDE_16</emphasis>&#160;&#160;&#160;2</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a1329eaa0d7ab377022cbbe361780959c"/>#define <emphasis role="strong">PT_H_DIVIDE_64</emphasis>&#160;&#160;&#160;3</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a5caccb3625ad4b8f7fb4e8cea3bd92e0"/>#define <emphasis role="strong">PT_SUB1</emphasis>&#160;&#160;&#160;4</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a639246284636348b1f2c538030061085"/>#define <emphasis role="strong">PT_SUB2</emphasis>&#160;&#160;&#160;5</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a1dbe9ab67ba0bb7bcd1d63e05338817d"/>#define <emphasis role="strong">PT_STCK_RISING</emphasis>&#160;&#160;&#160;6</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a3d5c840fceb833130cde2bd8dfa52f11"/>#define <emphasis role="strong">PT_STCK_FALLING</emphasis>&#160;&#160;&#160;7</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1afa6ab2e18d595d733ce1e259938a6f31"/>#define <emphasis role="strong">PTIMER_CLOCK</emphasis>&#160;&#160;&#160;PT_SYS</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a14a9c3a71eb077822f370374c4116317"/>#define <emphasis role="strong">PTM_COMPARE_MATCH_OUTPUT_MODE</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Operating Modes This section defines the operating modes for the PTM. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ab96ca1af313753d8fc3d5788ca45b980"/>#define <emphasis role="strong">PTM_CAPTURE_INPUT_MODE</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ab5375a452ed4d9282e64383fe1b12912"/>#define <emphasis role="strong">PTM_PWM_OR_SINGLE_PULSE_OUTPUT_MODE</emphasis>&#160;&#160;&#160;2</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ab04e80440629ea6f7c2a104ccfaf9fc0"/>#define <emphasis role="strong">PTM_TIMER_COUNTER_MODE</emphasis>&#160;&#160;&#160;3</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a076c655ffe1f7c4f207a849981592914"/>#define <emphasis role="strong">PTM_MODE</emphasis>&#160;&#160;&#160;PTM_CAPTURE_INPUT_MODE</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ad304ce5877ac8221090091463570bd64"/>#define <emphasis role="strong">PTM_NO_CHANGE</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM External Pins Function This section defines the functions of external pins for the PTM. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a862efc536c4998e7ba6a2f7a6abc78b6"/>#define <emphasis role="strong">PTM_OUTPUT_LOW</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a1666a46b12ba4f5fae0ddc15b8acb357"/>#define <emphasis role="strong">PTM_OUTPUT_HIGH</emphasis>&#160;&#160;&#160;2</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ad51f362d0fb690f67b23824f3c624640"/>#define <emphasis role="strong">PTM_TOGGLE_OUTPUT</emphasis>&#160;&#160;&#160;3</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ae3874cc74fece44f011eb761b528a9af"/>#define <emphasis role="strong">PTM_PWM_INACTIVE</emphasis>&#160;&#160;&#160;0</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1adc6a5e03eb9332417fdcb2783927c727"/>#define <emphasis role="strong">PTM_PWM_ACTIVE</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a457b0ce0d40aeb68c0bdb03a99582aa3"/>#define <emphasis role="strong">PTM_PWM_OUTPUT</emphasis>&#160;&#160;&#160;2</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a09f591e4bed7619c3553b1530c0ae6a6"/>#define <emphasis role="strong">PTM_SINGLE_PULSE_OUTPUT</emphasis>&#160;&#160;&#160;3</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1aca443f55be8ed7288f0cf3032cc76c2b"/>#define <emphasis role="strong">PTM_PIN_FUNCTION</emphasis>&#160;&#160;&#160;<link linkend="__p_t_m_8h_1ad304ce5877ac8221090091463570bd64">PTM_NO_CHANGE</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1aa60ca541e4848c987a1fb263ad10ee3b"/>#define <emphasis role="strong">PTM_INITIAL_LOW</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Output Mode This section defines the output mode of the PTM. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a2579e803965f63be8c303249c2e0e35d"/>#define <emphasis role="strong">PTM_INITIAL_HIGH</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a7ab0c747bc69ad584df214b20e2df5a8"/>#define <emphasis role="strong">PTM_ACTIVE_LOW</emphasis>&#160;&#160;&#160;0</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a5e097362db65ab8dccd63b4fe44996c9"/>#define <emphasis role="strong">PTM_ACTIVE_HIGH</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1abd04849fa9ea9edd918eeb37bc5a165b"/>#define <emphasis role="strong">PTM_OUTPUT_MODE</emphasis>&#160;&#160;&#160;<link linkend="__p_t_m_8h_1aa60ca541e4848c987a1fb263ad10ee3b">PTM_INITIAL_LOW</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a66f07760d545f85c01e8605f8aea8603"/>#define <emphasis role="strong">PTM_COUNTER_OFF</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Counter On/Off Control This section defines the control for turning the PTM counter on or off. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ab7352614d8e50ad7ca524522f2be061d"/>#define <emphasis role="strong">PTM_COUNTER_ON</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a4eb33939e3a7baaf905841b2ea67e54a"/>#define <emphasis role="strong">PTM_COUNTER</emphasis>&#160;&#160;&#160;PTM_COUNTER_ON</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a3314bb9896d3e2f615f48d6e9a287b38"/>#define <emphasis role="strong">PTM_NON_INVERT</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Output Polarity This section defines the output polarity of the PTM. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a2cddf84db9105197c9056bf082b3d7d1"/>#define <emphasis role="strong">PTM_INVERT</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a1476b0c5e1dbe33514c1e59958e53883"/>#define <emphasis role="strong">PTM_OUTPUT_POLARITY</emphasis>&#160;&#160;&#160;<link linkend="__p_t_m_8h_1a3314bb9896d3e2f615f48d6e9a287b38">PTM_NON_INVERT</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a834823a5914de204804123e324f4c129"/>#define <emphasis role="strong">PTM_PTPI_INPUT</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Capture Trigger Source Selection This section defines the trigger sources for capturing input signals. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a19fccc780612ae23f36e5e27238e4eb9"/>#define <emphasis role="strong">PTM_PTCK_INPUT</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a5c226f7332468f1ee39d22b0de1b24f4"/>#define <emphasis role="strong">PTM_CAPTURE_TRIGGER</emphasis>&#160;&#160;&#160;<link linkend="__p_t_m_8h_1a834823a5914de204804123e324f4c129">PTM_PTPI_INPUT</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a7a0bc698e238f82ac42369e0553a1c05"/>#define <emphasis role="strong">PTM_COMPARE_MATCH_P</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM Comparator Clear Condition Selection This section defines conditions for clearing the PTM comparator. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1aa9a4bd98a7f6c29bf4fae97cc67f63b2"/>#define <emphasis role="strong">PTM_COMPARE_MATCH_A</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1acf108b0f798cfb281197f25116f2e170"/>#define <emphasis role="strong">PTM_SELECT_CLEAR_COMPARE_MATCH</emphasis>&#160;&#160;&#160;<link linkend="__p_t_m_8h_1a7a0bc698e238f82ac42369e0553a1c05">PTM_COMPARE_MATCH_P</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a08f7cd63199addd9e702523f2c35b1e4"/>#define <emphasis role="strong">PTM_COMPARE_P_MATCH</emphasis>&#160;&#160;&#160;0</para>
+
+<para>Select PTM Counter clear condition in capture input mode This section defines clear conditions when in capture input mode. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a333db5ea3207271332327673ba56095c"/>#define <emphasis role="strong">PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_RISING_EDGE</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a81492018d99303d3bf4e8e2babc83caf"/>#define <emphasis role="strong">PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_FALING_EDGE</emphasis>&#160;&#160;&#160;2</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a9a51ce282cc9f6e1822b1373e3bd8da3"/>#define <emphasis role="strong">PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_DUAL_EDGE</emphasis>&#160;&#160;&#160;3</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1addd49c02e23cf99651900551ae386630"/>#define <emphasis role="strong">PTM_SELECT_CLEAR_CONDITION_IN_CAPTURE_INPUT</emphasis>&#160;&#160;&#160;PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_RISING_EDGE</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ab2e97983f53998d5333b55991356e9ce"/>#define <emphasis role="strong">FALLING_EDGE_TRIAGE_COUNTER_LATCH</emphasis>&#160;&#160;&#160;0</para>
+
+<para>PTM counter value latch edge flag This section defines the edge flag for latching counter values. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a4495ad3d5db3950a159880007cfe68d0"/>#define <emphasis role="strong">RISING_EDGE_TRIAGE_COUNTER_LATCH</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a3370555aa88a90d75e9ae7c4dae59e03"/>#define <emphasis role="strong">COUNTER_VALUE_LATCH_EDGE</emphasis>&#160;&#160;&#160;<link linkend="__p_t_m_8h_1ab2e97983f53998d5333b55991356e9ce">FALLING_EDGE_TRIAGE_COUNTER_LATCH</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a99dd7f767c90f96c247a93afd8293bb9"/>#define <emphasis role="strong">PTM_CCRA_LOW_BYTE_MASK</emphasis>&#160;&#160;&#160;0x01</para>
+
+<para>PTM CCRA Low &amp; High Byte Mask This section defines masks for low and high bytes of the PTM CCRA. </para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ac78cc6cab893de5fde68317e708dc548"/>#define <emphasis role="strong">PTM_CCRA_HIGH_BYTE_MASK</emphasis>&#160;&#160;&#160;0</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a805d3de91fcb538b147679f08185f279"/>#define <emphasis role="strong">PTM_CCRB_LOW_BYTE_MASK</emphasis>&#160;&#160;&#160;0x01</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1ade90d4846c87a49b07e7dce226bc332e"/>#define <emphasis role="strong">PTM_CCRB_HIGH_BYTE_MASK</emphasis>&#160;&#160;&#160;0</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a546f8dedb4da5abeec0b8dc9285811c6"/>#define <emphasis role="strong">PTM_CCRP_LOW_BYTE_MASK</emphasis>&#160;&#160;&#160;0x01</para>
+</listitem>
+            <listitem><para><anchor xml:id="__p_t_m_8h_1a26d2b5637b040a001ac2bbc7b802bf72"/>#define <emphasis role="strong">PTM_CCRP_HIGH_BYTE_MASK</emphasis>&#160;&#160;&#160;1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__p_t_m_8h_1a27cedd67a08677ae8e5bdea30c4e8781">PTimerInit</link> (void)</para>
+
+<para>Function declarations. </para>
+</listitem>
+            <listitem><para>void <link linkend="__p_t_m_8h_1aa976c4bdb441e99a5d5d83783736698f">PWMSeter</link> (char status)</para>
+
+<para>Sets the PWM status (active or inactive) </para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="__p_t_m_8h_1a3ad7889eebe85d00e5c521474b367d15">readPTimer</link> (void)</para>
+
+<para>Reads the current value of the PTM timer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Header file for the Periodic Timer Module (PTM) for Holtek MCUs. This file defines the macros and function prototypes for the PTM, which is used for generating timing signals, PWM, and input capture functionalities. Author: Mohamad Khosravi <link xlink:href="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</link> Date: 2024. </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__p_t_m_8h_1a27cedd67a08677ae8e5bdea30c4e8781"/><section>
+    <title>PTimerInit()</title>
+<indexterm><primary>PTimerInit</primary><secondary>PTM.h</secondary></indexterm>
+<indexterm><primary>PTM.h</primary><secondary>PTimerInit</secondary></indexterm>
+<para><computeroutput>void PTimerInit (void )</computeroutput></para><para>
+
+<para>Function declarations. </para>
+</para>
+
+<para>The following functions are declared for initializing and using the PTM.</para>
+
+<para>Initializes the PTM</para>
+
+<para>Function declarations.</para>
+
+<para>This function configures the PTM&apos;s clock, mode, output settings, and initializes the necessary registers.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__p_t_m_8h_1aa976c4bdb441e99a5d5d83783736698f"/><section>
+    <title>PWMSeter()</title>
+<indexterm><primary>PWMSeter</primary><secondary>PTM.h</secondary></indexterm>
+<indexterm><primary>PTM.h</primary><secondary>PWMSeter</secondary></indexterm>
+<para><computeroutput>void PWMSeter (char status)</computeroutput></para><para>
+
+<para>Sets the PWM status (active or inactive) </para>
+</para>
+
+<para>Sets the PWM status (active or inactive)</para>
+
+<para>This function configures the PWM output state based on the provided status.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>status</entry><entry>
+<para>The status to set for the PWM (1 for active, 0 for inactive). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__p_t_m_8h_1a3ad7889eebe85d00e5c521474b367d15"/><section>
+    <title>readPTimer()</title>
+<indexterm><primary>readPTimer</primary><secondary>PTM.h</secondary></indexterm>
+<indexterm><primary>PTM.h</primary><secondary>readPTimer</secondary></indexterm>
+<para><computeroutput>unsigned int readPTimer (void )</computeroutput></para><para>
+
+<para>Reads the current value of the PTM timer. </para>
+</para>
+
+<para>Reads the current value of the PTM timer.</para>
+
+<para>This function retrieves the current timer value from the PTM.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The current timer value as an unsigned integer. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

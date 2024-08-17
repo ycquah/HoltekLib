@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__b_t_m_8c" xml:lang="en-US">
+<title>BTM.c File Reference</title>
+<indexterm><primary>BTM.c</primary></indexterm>
+<para>
+
+<para>Implementation of Time Base 0 and Time Base 1 timers initialization. This file provides the definition for initializing the Time Base timers, configuring their clock source, enabling or disabling the timers, setting time-out periods, and enabling global interrupts. Author: Mohamad Khosravi <link xlink:href="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</link> Date: 2024. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;BTM.h&quot;<?linebreak?></programlisting>Include dependency graph for BTM.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_b_t_m_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__b_t_m_8c_1add65a4c7fc5388f2577a62919240a296">TimerBaseInit</link> (void)</para>
+
+<para>Initializes the Time Base 0 &amp; 1 timers. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Implementation of Time Base 0 and Time Base 1 timers initialization. This file provides the definition for initializing the Time Base timers, configuring their clock source, enabling or disabling the timers, setting time-out periods, and enabling global interrupts. Author: Mohamad Khosravi <link xlink:href="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</link> Date: 2024. </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__b_t_m_8c_1add65a4c7fc5388f2577a62919240a296"/><section>
+    <title>TimerBaseInit()</title>
+<indexterm><primary>TimerBaseInit</primary><secondary>BTM.c</secondary></indexterm>
+<indexterm><primary>BTM.c</primary><secondary>TimerBaseInit</secondary></indexterm>
+<para><computeroutput>void TimerBaseInit (void )</computeroutput></para><para>
+
+<para>Initializes the Time Base 0 &amp; 1 timers. </para>
+</para>
+
+<para>Initializes Time Base 0 &amp; 1 timers.</para>
+
+<para>This function configures the prescaler clock source for the timers, enables or disables the Time Base 0 and Time Base 1 timers based on pre-defined macros, sets their time-out periods, and enables global interrupts to allow the timers to trigger interrupt service routines.</para>
+
+<para><note><title>Note</title>
+
+<para>This function should be called before using the Time Base timers to ensure proper configuration and operation.</para>
+</note>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>void</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

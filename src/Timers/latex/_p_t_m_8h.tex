@@ -1,0 +1,254 @@
+\doxysection{PTM.\+h File Reference}
+\hypertarget{_p_t_m_8h}{}\label{_p_t_m_8h}\index{PTM.h@{PTM.h}}
+
+
+Header file for the Periodic Timer Module (PTM) for Holtek MCUs. This file defines the macros and function prototypes for the PTM, which is used for generating timing signals, PWM, and input capture functionalities. Author\+: Mohamad Khosravi \href{https://github.com/Mohamadkhosravi}{\texttt{ https\+://github.\+com/\+Mohamadkhosravi}} Date\+: 2024.  
+
+
+{\ttfamily \#include $<$Main.\+h$>$}\newline
+Include dependency graph for PTM.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_t_m_8h_aaf134c237701ac1711480b3286e9bc81}\label{_p_t_m_8h_aaf134c237701ac1711480b3286e9bc81} 
+\#define {\bfseries PT\+\_\+\+SYS\+\_\+\+DIVIDE\+\_\+4}~0
+\begin{DoxyCompactList}\small\item\em PTM Counter Clock Selection This section defines the clock sources for the PTM counter. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_aab6560fef9ad063652fe756b39fd387e}\label{_p_t_m_8h_aab6560fef9ad063652fe756b39fd387e} 
+\#define {\bfseries PT\+\_\+\+SYS}~1
+\item 
+\Hypertarget{_p_t_m_8h_a516b5dfcd8ffaa1fa2acba360bf1349b}\label{_p_t_m_8h_a516b5dfcd8ffaa1fa2acba360bf1349b} 
+\#define {\bfseries PT\+\_\+\+H\+\_\+\+DIVIDE\+\_\+16}~2
+\item 
+\Hypertarget{_p_t_m_8h_a1329eaa0d7ab377022cbbe361780959c}\label{_p_t_m_8h_a1329eaa0d7ab377022cbbe361780959c} 
+\#define {\bfseries PT\+\_\+\+H\+\_\+\+DIVIDE\+\_\+64}~3
+\item 
+\Hypertarget{_p_t_m_8h_a5caccb3625ad4b8f7fb4e8cea3bd92e0}\label{_p_t_m_8h_a5caccb3625ad4b8f7fb4e8cea3bd92e0} 
+\#define {\bfseries PT\+\_\+\+SUB1}~4
+\item 
+\Hypertarget{_p_t_m_8h_a639246284636348b1f2c538030061085}\label{_p_t_m_8h_a639246284636348b1f2c538030061085} 
+\#define {\bfseries PT\+\_\+\+SUB2}~5
+\item 
+\Hypertarget{_p_t_m_8h_a1dbe9ab67ba0bb7bcd1d63e05338817d}\label{_p_t_m_8h_a1dbe9ab67ba0bb7bcd1d63e05338817d} 
+\#define {\bfseries PT\+\_\+\+STCK\+\_\+\+RISING}~6
+\item 
+\Hypertarget{_p_t_m_8h_a3d5c840fceb833130cde2bd8dfa52f11}\label{_p_t_m_8h_a3d5c840fceb833130cde2bd8dfa52f11} 
+\#define {\bfseries PT\+\_\+\+STCK\+\_\+\+FALLING}~7
+\item 
+\Hypertarget{_p_t_m_8h_afa6ab2e18d595d733ce1e259938a6f31}\label{_p_t_m_8h_afa6ab2e18d595d733ce1e259938a6f31} 
+\#define {\bfseries PTIMER\+\_\+\+CLOCK}~PT\+\_\+\+SYS
+\item 
+\Hypertarget{_p_t_m_8h_a14a9c3a71eb077822f370374c4116317}\label{_p_t_m_8h_a14a9c3a71eb077822f370374c4116317} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+MATCH\+\_\+\+OUTPUT\+\_\+\+MODE}~0
+\begin{DoxyCompactList}\small\item\em PTM Operating Modes This section defines the operating modes for the PTM. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_ab96ca1af313753d8fc3d5788ca45b980}\label{_p_t_m_8h_ab96ca1af313753d8fc3d5788ca45b980} 
+\#define {\bfseries PTM\+\_\+\+CAPTURE\+\_\+\+INPUT\+\_\+\+MODE}~1
+\item 
+\Hypertarget{_p_t_m_8h_ab5375a452ed4d9282e64383fe1b12912}\label{_p_t_m_8h_ab5375a452ed4d9282e64383fe1b12912} 
+\#define {\bfseries PTM\+\_\+\+PWM\+\_\+\+OR\+\_\+\+SINGLE\+\_\+\+PULSE\+\_\+\+OUTPUT\+\_\+\+MODE}~2
+\item 
+\Hypertarget{_p_t_m_8h_ab04e80440629ea6f7c2a104ccfaf9fc0}\label{_p_t_m_8h_ab04e80440629ea6f7c2a104ccfaf9fc0} 
+\#define {\bfseries PTM\+\_\+\+TIMER\+\_\+\+COUNTER\+\_\+\+MODE}~3
+\item 
+\Hypertarget{_p_t_m_8h_a076c655ffe1f7c4f207a849981592914}\label{_p_t_m_8h_a076c655ffe1f7c4f207a849981592914} 
+\#define {\bfseries PTM\+\_\+\+MODE}~PTM\+\_\+\+CAPTURE\+\_\+\+INPUT\+\_\+\+MODE
+\item 
+\Hypertarget{_p_t_m_8h_ad304ce5877ac8221090091463570bd64}\label{_p_t_m_8h_ad304ce5877ac8221090091463570bd64} 
+\#define {\bfseries PTM\+\_\+\+NO\+\_\+\+CHANGE}~0
+\begin{DoxyCompactList}\small\item\em PTM External Pins Function This section defines the functions of external pins for the PTM. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_a862efc536c4998e7ba6a2f7a6abc78b6}\label{_p_t_m_8h_a862efc536c4998e7ba6a2f7a6abc78b6} 
+\#define {\bfseries PTM\+\_\+\+OUTPUT\+\_\+\+LOW}~1
+\item 
+\Hypertarget{_p_t_m_8h_a1666a46b12ba4f5fae0ddc15b8acb357}\label{_p_t_m_8h_a1666a46b12ba4f5fae0ddc15b8acb357} 
+\#define {\bfseries PTM\+\_\+\+OUTPUT\+\_\+\+HIGH}~2
+\item 
+\Hypertarget{_p_t_m_8h_ad51f362d0fb690f67b23824f3c624640}\label{_p_t_m_8h_ad51f362d0fb690f67b23824f3c624640} 
+\#define {\bfseries PTM\+\_\+\+TOGGLE\+\_\+\+OUTPUT}~3
+\item 
+\Hypertarget{_p_t_m_8h_ae3874cc74fece44f011eb761b528a9af}\label{_p_t_m_8h_ae3874cc74fece44f011eb761b528a9af} 
+\#define {\bfseries PTM\+\_\+\+PWM\+\_\+\+INACTIVE}~0
+\item 
+\Hypertarget{_p_t_m_8h_adc6a5e03eb9332417fdcb2783927c727}\label{_p_t_m_8h_adc6a5e03eb9332417fdcb2783927c727} 
+\#define {\bfseries PTM\+\_\+\+PWM\+\_\+\+ACTIVE}~1
+\item 
+\Hypertarget{_p_t_m_8h_a457b0ce0d40aeb68c0bdb03a99582aa3}\label{_p_t_m_8h_a457b0ce0d40aeb68c0bdb03a99582aa3} 
+\#define {\bfseries PTM\+\_\+\+PWM\+\_\+\+OUTPUT}~2
+\item 
+\Hypertarget{_p_t_m_8h_a09f591e4bed7619c3553b1530c0ae6a6}\label{_p_t_m_8h_a09f591e4bed7619c3553b1530c0ae6a6} 
+\#define {\bfseries PTM\+\_\+\+SINGLE\+\_\+\+PULSE\+\_\+\+OUTPUT}~3
+\item 
+\Hypertarget{_p_t_m_8h_aca443f55be8ed7288f0cf3032cc76c2b}\label{_p_t_m_8h_aca443f55be8ed7288f0cf3032cc76c2b} 
+\#define {\bfseries PTM\+\_\+\+PIN\+\_\+\+FUNCTION}~\mbox{\hyperlink{_p_t_m_8h_ad304ce5877ac8221090091463570bd64}{PTM\+\_\+\+NO\+\_\+\+CHANGE}}
+\item 
+\Hypertarget{_p_t_m_8h_aa60ca541e4848c987a1fb263ad10ee3b}\label{_p_t_m_8h_aa60ca541e4848c987a1fb263ad10ee3b} 
+\#define {\bfseries PTM\+\_\+\+INITIAL\+\_\+\+LOW}~0
+\begin{DoxyCompactList}\small\item\em PTM Output Mode This section defines the output mode of the PTM. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_a2579e803965f63be8c303249c2e0e35d}\label{_p_t_m_8h_a2579e803965f63be8c303249c2e0e35d} 
+\#define {\bfseries PTM\+\_\+\+INITIAL\+\_\+\+HIGH}~1
+\item 
+\Hypertarget{_p_t_m_8h_a7ab0c747bc69ad584df214b20e2df5a8}\label{_p_t_m_8h_a7ab0c747bc69ad584df214b20e2df5a8} 
+\#define {\bfseries PTM\+\_\+\+ACTIVE\+\_\+\+LOW}~0
+\item 
+\Hypertarget{_p_t_m_8h_a5e097362db65ab8dccd63b4fe44996c9}\label{_p_t_m_8h_a5e097362db65ab8dccd63b4fe44996c9} 
+\#define {\bfseries PTM\+\_\+\+ACTIVE\+\_\+\+HIGH}~1
+\item 
+\Hypertarget{_p_t_m_8h_abd04849fa9ea9edd918eeb37bc5a165b}\label{_p_t_m_8h_abd04849fa9ea9edd918eeb37bc5a165b} 
+\#define {\bfseries PTM\+\_\+\+OUTPUT\+\_\+\+MODE}~\mbox{\hyperlink{_p_t_m_8h_aa60ca541e4848c987a1fb263ad10ee3b}{PTM\+\_\+\+INITIAL\+\_\+\+LOW}}
+\item 
+\Hypertarget{_p_t_m_8h_a66f07760d545f85c01e8605f8aea8603}\label{_p_t_m_8h_a66f07760d545f85c01e8605f8aea8603} 
+\#define {\bfseries PTM\+\_\+\+COUNTER\+\_\+\+OFF}~0
+\begin{DoxyCompactList}\small\item\em PTM Counter On/\+Off Control This section defines the control for turning the PTM counter on or off. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_ab7352614d8e50ad7ca524522f2be061d}\label{_p_t_m_8h_ab7352614d8e50ad7ca524522f2be061d} 
+\#define {\bfseries PTM\+\_\+\+COUNTER\+\_\+\+ON}~1
+\item 
+\Hypertarget{_p_t_m_8h_a4eb33939e3a7baaf905841b2ea67e54a}\label{_p_t_m_8h_a4eb33939e3a7baaf905841b2ea67e54a} 
+\#define {\bfseries PTM\+\_\+\+COUNTER}~PTM\+\_\+\+COUNTER\+\_\+\+ON
+\item 
+\Hypertarget{_p_t_m_8h_a3314bb9896d3e2f615f48d6e9a287b38}\label{_p_t_m_8h_a3314bb9896d3e2f615f48d6e9a287b38} 
+\#define {\bfseries PTM\+\_\+\+NON\+\_\+\+INVERT}~0
+\begin{DoxyCompactList}\small\item\em PTM Output Polarity This section defines the output polarity of the PTM. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_a2cddf84db9105197c9056bf082b3d7d1}\label{_p_t_m_8h_a2cddf84db9105197c9056bf082b3d7d1} 
+\#define {\bfseries PTM\+\_\+\+INVERT}~1
+\item 
+\Hypertarget{_p_t_m_8h_a1476b0c5e1dbe33514c1e59958e53883}\label{_p_t_m_8h_a1476b0c5e1dbe33514c1e59958e53883} 
+\#define {\bfseries PTM\+\_\+\+OUTPUT\+\_\+\+POLARITY}~\mbox{\hyperlink{_p_t_m_8h_a3314bb9896d3e2f615f48d6e9a287b38}{PTM\+\_\+\+NON\+\_\+\+INVERT}}
+\item 
+\Hypertarget{_p_t_m_8h_a834823a5914de204804123e324f4c129}\label{_p_t_m_8h_a834823a5914de204804123e324f4c129} 
+\#define {\bfseries PTM\+\_\+\+PTPI\+\_\+\+INPUT}~0
+\begin{DoxyCompactList}\small\item\em PTM Capture Trigger Source Selection This section defines the trigger sources for capturing input signals. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_a19fccc780612ae23f36e5e27238e4eb9}\label{_p_t_m_8h_a19fccc780612ae23f36e5e27238e4eb9} 
+\#define {\bfseries PTM\+\_\+\+PTCK\+\_\+\+INPUT}~1
+\item 
+\Hypertarget{_p_t_m_8h_a5c226f7332468f1ee39d22b0de1b24f4}\label{_p_t_m_8h_a5c226f7332468f1ee39d22b0de1b24f4} 
+\#define {\bfseries PTM\+\_\+\+CAPTURE\+\_\+\+TRIGGER}~\mbox{\hyperlink{_p_t_m_8h_a834823a5914de204804123e324f4c129}{PTM\+\_\+\+PTPI\+\_\+\+INPUT}}
+\item 
+\Hypertarget{_p_t_m_8h_a7a0bc698e238f82ac42369e0553a1c05}\label{_p_t_m_8h_a7a0bc698e238f82ac42369e0553a1c05} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+MATCH\+\_\+P}~0
+\begin{DoxyCompactList}\small\item\em PTM Comparator Clear Condition Selection This section defines conditions for clearing the PTM comparator. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_aa9a4bd98a7f6c29bf4fae97cc67f63b2}\label{_p_t_m_8h_aa9a4bd98a7f6c29bf4fae97cc67f63b2} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+MATCH\+\_\+A}~1
+\item 
+\Hypertarget{_p_t_m_8h_acf108b0f798cfb281197f25116f2e170}\label{_p_t_m_8h_acf108b0f798cfb281197f25116f2e170} 
+\#define {\bfseries PTM\+\_\+\+SELECT\+\_\+\+CLEAR\+\_\+\+COMPARE\+\_\+\+MATCH}~\mbox{\hyperlink{_p_t_m_8h_a7a0bc698e238f82ac42369e0553a1c05}{PTM\+\_\+\+COMPARE\+\_\+\+MATCH\+\_\+P}}
+\item 
+\Hypertarget{_p_t_m_8h_a08f7cd63199addd9e702523f2c35b1e4}\label{_p_t_m_8h_a08f7cd63199addd9e702523f2c35b1e4} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+P\+\_\+\+MATCH}~0
+\begin{DoxyCompactList}\small\item\em Select PTM Counter clear condition in capture input mode This section defines clear conditions when in capture input mode. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_a333db5ea3207271332327673ba56095c}\label{_p_t_m_8h_a333db5ea3207271332327673ba56095c} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+P\+\_\+\+MATCH\+\_\+\+OR\+\_\+\+PTCK\+\_\+\+PTPI\+\_\+\+RISING\+\_\+\+EDGE}~1
+\item 
+\Hypertarget{_p_t_m_8h_a81492018d99303d3bf4e8e2babc83caf}\label{_p_t_m_8h_a81492018d99303d3bf4e8e2babc83caf} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+P\+\_\+\+MATCH\+\_\+\+OR\+\_\+\+PTCK\+\_\+\+PTPI\+\_\+\+FALING\+\_\+\+EDGE}~2
+\item 
+\Hypertarget{_p_t_m_8h_a9a51ce282cc9f6e1822b1373e3bd8da3}\label{_p_t_m_8h_a9a51ce282cc9f6e1822b1373e3bd8da3} 
+\#define {\bfseries PTM\+\_\+\+COMPARE\+\_\+\+P\+\_\+\+MATCH\+\_\+\+OR\+\_\+\+PTCK\+\_\+\+PTPI\+\_\+\+DUAL\+\_\+\+EDGE}~3
+\item 
+\Hypertarget{_p_t_m_8h_addd49c02e23cf99651900551ae386630}\label{_p_t_m_8h_addd49c02e23cf99651900551ae386630} 
+\#define {\bfseries PTM\+\_\+\+SELECT\+\_\+\+CLEAR\+\_\+\+CONDITION\+\_\+\+IN\+\_\+\+CAPTURE\+\_\+\+INPUT}~PTM\+\_\+\+COMPARE\+\_\+\+P\+\_\+\+MATCH\+\_\+\+OR\+\_\+\+PTCK\+\_\+\+PTPI\+\_\+\+RISING\+\_\+\+EDGE
+\item 
+\Hypertarget{_p_t_m_8h_ab2e97983f53998d5333b55991356e9ce}\label{_p_t_m_8h_ab2e97983f53998d5333b55991356e9ce} 
+\#define {\bfseries FALLING\+\_\+\+EDGE\+\_\+\+TRIAGE\+\_\+\+COUNTER\+\_\+\+LATCH}~0
+\begin{DoxyCompactList}\small\item\em PTM counter value latch edge flag This section defines the edge flag for latching counter values. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_a4495ad3d5db3950a159880007cfe68d0}\label{_p_t_m_8h_a4495ad3d5db3950a159880007cfe68d0} 
+\#define {\bfseries RISING\+\_\+\+EDGE\+\_\+\+TRIAGE\+\_\+\+COUNTER\+\_\+\+LATCH}~1
+\item 
+\Hypertarget{_p_t_m_8h_a3370555aa88a90d75e9ae7c4dae59e03}\label{_p_t_m_8h_a3370555aa88a90d75e9ae7c4dae59e03} 
+\#define {\bfseries COUNTER\+\_\+\+VALUE\+\_\+\+LATCH\+\_\+\+EDGE}~\mbox{\hyperlink{_p_t_m_8h_ab2e97983f53998d5333b55991356e9ce}{FALLING\+\_\+\+EDGE\+\_\+\+TRIAGE\+\_\+\+COUNTER\+\_\+\+LATCH}}
+\item 
+\Hypertarget{_p_t_m_8h_a99dd7f767c90f96c247a93afd8293bb9}\label{_p_t_m_8h_a99dd7f767c90f96c247a93afd8293bb9} 
+\#define {\bfseries PTM\+\_\+\+CCRA\+\_\+\+LOW\+\_\+\+BYTE\+\_\+\+MASK}~0x01
+\begin{DoxyCompactList}\small\item\em PTM CCRA Low \& High Byte Mask This section defines masks for low and high bytes of the PTM CCRA. \end{DoxyCompactList}\item 
+\Hypertarget{_p_t_m_8h_ac78cc6cab893de5fde68317e708dc548}\label{_p_t_m_8h_ac78cc6cab893de5fde68317e708dc548} 
+\#define {\bfseries PTM\+\_\+\+CCRA\+\_\+\+HIGH\+\_\+\+BYTE\+\_\+\+MASK}~0
+\item 
+\Hypertarget{_p_t_m_8h_a805d3de91fcb538b147679f08185f279}\label{_p_t_m_8h_a805d3de91fcb538b147679f08185f279} 
+\#define {\bfseries PTM\+\_\+\+CCRB\+\_\+\+LOW\+\_\+\+BYTE\+\_\+\+MASK}~0x01
+\item 
+\Hypertarget{_p_t_m_8h_ade90d4846c87a49b07e7dce226bc332e}\label{_p_t_m_8h_ade90d4846c87a49b07e7dce226bc332e} 
+\#define {\bfseries PTM\+\_\+\+CCRB\+\_\+\+HIGH\+\_\+\+BYTE\+\_\+\+MASK}~0
+\item 
+\Hypertarget{_p_t_m_8h_a546f8dedb4da5abeec0b8dc9285811c6}\label{_p_t_m_8h_a546f8dedb4da5abeec0b8dc9285811c6} 
+\#define {\bfseries PTM\+\_\+\+CCRP\+\_\+\+LOW\+\_\+\+BYTE\+\_\+\+MASK}~0x01
+\item 
+\Hypertarget{_p_t_m_8h_a26d2b5637b040a001ac2bbc7b802bf72}\label{_p_t_m_8h_a26d2b5637b040a001ac2bbc7b802bf72} 
+\#define {\bfseries PTM\+\_\+\+CCRP\+\_\+\+HIGH\+\_\+\+BYTE\+\_\+\+MASK}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_t_m_8h_a27cedd67a08677ae8e5bdea30c4e8781}{PTimer\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Function declarations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_t_m_8h_aa976c4bdb441e99a5d5d83783736698f}{PWMSeter}} (char status)
+\begin{DoxyCompactList}\small\item\em Sets the PWM status (active or inactive) \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{_p_t_m_8h_a3ad7889eebe85d00e5c521474b367d15}{read\+PTimer}} (void)
+\begin{DoxyCompactList}\small\item\em Reads the current value of the PTM timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Periodic Timer Module (PTM) for Holtek MCUs. This file defines the macros and function prototypes for the PTM, which is used for generating timing signals, PWM, and input capture functionalities. Author\+: Mohamad Khosravi \href{https://github.com/Mohamadkhosravi}{\texttt{ https\+://github.\+com/\+Mohamadkhosravi}} Date\+: 2024. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_p_t_m_8h_a27cedd67a08677ae8e5bdea30c4e8781}\index{PTM.h@{PTM.h}!PTimerInit@{PTimerInit}}
+\index{PTimerInit@{PTimerInit}!PTM.h@{PTM.h}}
+\doxysubsubsection{\texorpdfstring{PTimerInit()}{PTimerInit()}}
+{\footnotesize\ttfamily \label{_p_t_m_8h_a27cedd67a08677ae8e5bdea30c4e8781} 
+void PTimer\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Function declarations. 
+
+The following functions are declared for initializing and using the PTM.
+
+Initializes the PTM
+
+Function declarations.
+
+This function configures the PTM\textquotesingle{}s clock, mode, output settings, and initializes the necessary registers.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{_p_t_m_8h_aa976c4bdb441e99a5d5d83783736698f}\index{PTM.h@{PTM.h}!PWMSeter@{PWMSeter}}
+\index{PWMSeter@{PWMSeter}!PTM.h@{PTM.h}}
+\doxysubsubsection{\texorpdfstring{PWMSeter()}{PWMSeter()}}
+{\footnotesize\ttfamily \label{_p_t_m_8h_aa976c4bdb441e99a5d5d83783736698f} 
+void PWMSeter (\begin{DoxyParamCaption}\item[{char}]{status}{}\end{DoxyParamCaption})}
+
+
+
+Sets the PWM status (active or inactive) 
+
+Sets the PWM status (active or inactive)
+
+This function configures the PWM output state based on the provided status.
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & The status to set for the PWM (1 for active, 0 for inactive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{_p_t_m_8h_a3ad7889eebe85d00e5c521474b367d15}\index{PTM.h@{PTM.h}!readPTimer@{readPTimer}}
+\index{readPTimer@{readPTimer}!PTM.h@{PTM.h}}
+\doxysubsubsection{\texorpdfstring{readPTimer()}{readPTimer()}}
+{\footnotesize\ttfamily \label{_p_t_m_8h_a3ad7889eebe85d00e5c521474b367d15} 
+unsigned int read\+PTimer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the current value of the PTM timer. 
+
+Reads the current value of the PTM timer.
+
+This function retrieves the current timer value from the PTM.
+
+\begin{DoxyReturn}{Returns}
+The current timer value as an unsigned integer. 
+\end{DoxyReturn}

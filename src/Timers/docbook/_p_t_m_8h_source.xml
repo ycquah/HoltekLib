@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__p_t_m_8h_source" xml:lang="en-US">
+<title>PTM.h</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+3 <emphasis role="comment">&#32;*&#32;You&#32;may&#32;not&#32;use&#32;this&#32;file&#32;except&#32;in&#32;compliance&#32;with&#32;the&#32;License.</emphasis>
+4 <emphasis role="comment">&#32;*&#32;Obtain&#32;a&#32;copy&#32;at&#32;http://www.apache.org/licenses/LICENSE-2.0.</emphasis>
+5 <emphasis role="comment">&#32;*&#32;Distributed&#32;on&#32;an&#32;&quot;AS&#32;IS&quot;&#32;basis,&#32;without&#32;warranties&#32;or&#32;conditions.</emphasis>
+6 <emphasis role="comment">&#32;*/</emphasis>
+7 
+16 <emphasis role="preprocessor">#ifndef&#32;PTIMER_H</emphasis>
+17 <emphasis role="preprocessor">#define&#32;PTIMER_H</emphasis>
+18 
+19 <emphasis role="preprocessor">#include&#32;&lt;Main.h&gt;</emphasis>
+20 
+24 <emphasis role="preprocessor">#define&#32;PT_SYS_DIVIDE_4&#32;&#32;&#32;&#32;&#32;0</emphasis>
+25 <emphasis role="preprocessor">#define&#32;PT_SYS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+26 <emphasis role="preprocessor">#define&#32;PT_H_DIVIDE_16&#32;&#32;&#32;&#32;&#32;&#32;2</emphasis>
+27 <emphasis role="preprocessor">#define&#32;PT_H_DIVIDE_64&#32;&#32;&#32;&#32;&#32;&#32;3</emphasis>
+28 <emphasis role="preprocessor">#define&#32;PT_SUB1&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;4</emphasis>
+29 <emphasis role="preprocessor">#define&#32;PT_SUB2&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;5</emphasis>
+30 <emphasis role="preprocessor">#define&#32;PT_STCK_RISING&#32;&#32;&#32;&#32;&#32;&#32;6</emphasis>
+31 <emphasis role="preprocessor">#define&#32;PT_STCK_FALLING&#32;&#32;&#32;&#32;&#32;7</emphasis>
+32 <emphasis role="comment">//=========================================================================</emphasis>
+33 <emphasis role="preprocessor">#define&#32;PTIMER_CLOCK&#32;&#32;&#32;&#32;PT_SYS</emphasis>
+34 <emphasis role="comment">//=========================================================================</emphasis>
+35 
+39 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_MATCH_OUTPUT_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+40 <emphasis role="preprocessor">#define&#32;PTM_CAPTURE_INPUT_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+41 <emphasis role="preprocessor">#define&#32;PTM_PWM_OR_SINGLE_PULSE_OUTPUT_MODE&#32;&#32;&#32;&#32;2</emphasis>
+42 <emphasis role="preprocessor">#define&#32;PTM_TIMER_COUNTER_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;3</emphasis>
+43 <emphasis role="comment">//=========================================================================</emphasis>
+44 <emphasis role="preprocessor">#define&#32;PTM_MODE&#32;&#32;&#32;&#32;&#32;PTM_CAPTURE_INPUT_MODE</emphasis>
+45 <emphasis role="comment">//=========================================================================</emphasis>
+46 
+50 <emphasis role="preprocessor">#define&#32;PTM_NO_CHANGE&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+51 <emphasis role="preprocessor">#define&#32;PTM_OUTPUT_LOW&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+52 <emphasis role="preprocessor">#define&#32;PTM_OUTPUT_HIGH&#32;&#32;&#32;&#32;&#32;2</emphasis>
+53 <emphasis role="preprocessor">#define&#32;PTM_TOGGLE_OUTPUT&#32;&#32;&#32;3</emphasis>
+54 <emphasis role="preprocessor">#define&#32;PTM_PWM_INACTIVE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+55 <emphasis role="preprocessor">#define&#32;PTM_PWM_ACTIVE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+56 <emphasis role="preprocessor">#define&#32;PTM_PWM_OUTPUT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;2</emphasis>
+57 <emphasis role="preprocessor">#define&#32;PTM_SINGLE_PULSE_OUTPUT&#32;&#32;&#32;3</emphasis>
+58 <emphasis role="comment">//=========================================================================</emphasis>
+59 <emphasis role="preprocessor">#define&#32;PTM_PIN_FUNCTION&#32;&#32;&#32;PTM_NO_CHANGE</emphasis>
+60 <emphasis role="comment">//=========================================================================</emphasis>
+61 
+65 <emphasis role="preprocessor">#define&#32;PTM_INITIAL_LOW&#32;0</emphasis>
+66 <emphasis role="preprocessor">#define&#32;PTM_INITIAL_HIGH&#32;1</emphasis>
+67 <emphasis role="preprocessor">#define&#32;PTM_ACTIVE_LOW&#32;0</emphasis>
+68 <emphasis role="preprocessor">#define&#32;PTM_ACTIVE_HIGH&#32;1</emphasis>
+69 <emphasis role="comment">//=========================================================================</emphasis>
+70 <emphasis role="preprocessor">#define&#32;PTM_OUTPUT_MODE&#32;&#32;PTM_INITIAL_LOW</emphasis>
+71 <emphasis role="comment">//=========================================================================</emphasis>
+72 
+76 <emphasis role="preprocessor">#define&#32;PTM_COUNTER_OFF&#32;&#32;&#32;&#32;&#32;0</emphasis>
+77 <emphasis role="preprocessor">#define&#32;PTM_COUNTER_ON&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+78 <emphasis role="comment">//=========================================================================</emphasis>
+79 <emphasis role="preprocessor">#define&#32;PTM_COUNTER&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;PTM_COUNTER_ON</emphasis>
+80 <emphasis role="comment">//=========================================================================</emphasis>
+81 
+85 <emphasis role="preprocessor">#define&#32;PTM_NON_INVERT&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+86 <emphasis role="preprocessor">#define&#32;PTM_INVERT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+87 <emphasis role="comment">//=========================================================================</emphasis>
+88 <emphasis role="preprocessor">#define&#32;PTM_OUTPUT_POLARITY&#32;&#32;PTM_NON_INVERT</emphasis>
+89 <emphasis role="comment">//=========================================================================</emphasis>
+90 
+94 <emphasis role="preprocessor">#define&#32;PTM_PTPI_INPUT&#32;0</emphasis>
+95 <emphasis role="preprocessor">#define&#32;PTM_PTCK_INPUT&#32;1</emphasis>
+96 <emphasis role="comment">//=========================================================================</emphasis>
+97 <emphasis role="preprocessor">#define&#32;PTM_CAPTURE_TRIGGER&#32;&#32;PTM_PTPI_INPUT</emphasis>
+98 <emphasis role="comment">//=========================================================================</emphasis>
+99 
+103 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_MATCH_P&#32;0</emphasis>
+104 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_MATCH_A&#32;1</emphasis>
+105 <emphasis role="comment">//=========================================================================</emphasis>
+106 <emphasis role="preprocessor">#define&#32;PTM_SELECT_CLEAR_COMPARE_MATCH&#32;&#32;&#32;&#32;PTM_COMPARE_MATCH_P</emphasis>
+107 <emphasis role="comment">//=========================================================================</emphasis>
+108 
+112 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_P_MATCH&#32;0</emphasis>
+113 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_RISING_EDGE&#32;1</emphasis>
+114 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_FALING_EDGE&#32;2</emphasis>
+115 <emphasis role="preprocessor">#define&#32;PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_DUAL_EDGE&#32;&#32;&#32;3</emphasis>
+116 <emphasis role="comment">//=========================================================================</emphasis>
+117 <emphasis role="preprocessor">#define&#32;PTM_SELECT_CLEAR_CONDITION_IN_CAPTURE_INPUT&#32;&#32;PTM_COMPARE_P_MATCH_OR_PTCK_PTPI_RISING_EDGE</emphasis>
+118 <emphasis role="comment">//=========================================================================</emphasis>
+119 
+123 <emphasis role="preprocessor">#define&#32;FALLING_EDGE_TRIAGE_COUNTER_LATCH&#32;0</emphasis>
+124 <emphasis role="preprocessor">#define&#32;RISING_EDGE_TRIAGE_COUNTER_LATCH&#32;&#32;1</emphasis>
+125 <emphasis role="comment">//=========================================================================</emphasis>
+126 <emphasis role="preprocessor">#define&#32;COUNTER_VALUE_LATCH_EDGE&#32;&#32;FALLING_EDGE_TRIAGE_COUNTER_LATCH</emphasis>
+127 <emphasis role="comment">//=========================================================================</emphasis>
+128 
+132 <emphasis role="preprocessor">#define&#32;PTM_CCRA_LOW_BYTE_MASK&#32;0x01&#32;&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;PTM&#32;CCRA&#32;low&#32;byte&#32;MAX=0xFF</emphasis>
+133 <emphasis role="preprocessor">#define&#32;PTM_CCRA_HIGH_BYTE_MASK&#32;0&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;PTM&#32;CCRA&#32;high&#32;byte&#32;MAX=0x3</emphasis>
+134 <emphasis role="comment">//=========================================================================</emphasis>
+135 
+136 <emphasis role="comment">//&#32;PTM&#32;CCRB&#32;Low&#32;&amp;&#32;High&#32;Byte&#32;Mask</emphasis>
+137 <emphasis role="comment">//=========================================================================</emphasis>
+138 <emphasis role="preprocessor">#define&#32;PTM_CCRB_LOW_BYTE_MASK&#32;0x01&#32;&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;PTM&#32;CCRB&#32;low&#32;byte&#32;MAX=0xFF</emphasis>
+139 <emphasis role="preprocessor">#define&#32;PTM_CCRB_HIGH_BYTE_MASK&#32;0</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;PTM&#32;CCRB&#32;high&#32;byte&#32;MAX=0x3</emphasis>
+140 <emphasis role="comment">//=========================================================================</emphasis>
+141 
+142 <emphasis role="comment">//&#32;PTM&#32;CCRP&#32;Low&#32;&amp;&#32;High&#32;Byte&#32;Mask</emphasis>
+143 <emphasis role="comment">//=========================================================================</emphasis>
+144 <emphasis role="preprocessor">#define&#32;PTM_CCRP_LOW_BYTE_MASK&#32;0x01&#32;&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;PTM&#32;CCRP&#32;low&#32;byte&#32;&#32;MIN&#32;=1&#32;MAX=0xFF</emphasis>
+145 <emphasis role="preprocessor">#define&#32;PTM_CCRP_HIGH_BYTE_MASK&#32;1&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;PTM&#32;CCRP&#32;high&#32;byte&#32;MIN&#32;=1&#32;MAX=0x3</emphasis>
+146 <emphasis role="comment">//=========================================================================</emphasis>
+147 
+152 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__p_t_m_8h_1a27cedd67a08677ae8e5bdea30c4e8781">PTimerInit</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;
+153 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__p_t_m_8h_1aa976c4bdb441e99a5d5d83783736698f">PWMSeter</link>(<emphasis role="keywordtype">char</emphasis>&#32;status);&#32;
+154 <emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__p_t_m_8h_1a3ad7889eebe85d00e5c521474b367d15">readPTimer</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;
+156 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">//&#32;End&#32;of&#32;PTIMER_H</emphasis>
+</programlisting></section>

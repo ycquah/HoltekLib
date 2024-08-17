@@ -1,0 +1,110 @@
+\doxysection{STM.\+h}
+\hypertarget{_s_t_m_8h_source}{}\label{_s_t_m_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ You\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Obtain\ a\ copy\ at\ http://www.apache.org/licenses/LICENSE-\/2.0.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Distributed\ on\ an\ "{}AS\ IS"{}\ basis,\ without\ warranties\ or\ conditions.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ STIMER\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ STIMER\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <Main.h>}\ \ \textcolor{comment}{//\ Assuming\ this\ includes\ necessary\ main\ header\ file}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ ST\_FSYS\_DIVIDE\_4\ \ \ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ST\_FSYS\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ ST\_FH\_DIVIDE\_16\ \ \ \ 2}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ ST\_FH\_DIVIDE\_64\ \ \ \ 3}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ ST\_FSUB1\ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ST\_FSUB2\ \ \ \ \ \ \ \ \ \ \ 5}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ST\_STCK\_RISING\ \ \ \ \ 6}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ST\_STCK\_FALLING\ \ \ \ 7}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ STIMER\_CLOCK\ \ \ \ ST\_FSYS}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ STM\_1024\_CLOCKS\ 0}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ STM\_128\_CLOCKS\ \ 1}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ STM\_256\_CLOCKS\ \ 2}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ STM\_384\_CLOCKS\ \ 3}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ STM\_512\_CLOCKS\ \ 4}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ STM\_640\_CLOCKS\ \ 5}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ STM\_768\_CLOCKS\ \ 6}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ STM\_896\_CLOCKS\ \ 7}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ STM\_PERIOD\ \ \ \ STM\_1024\_CLOCKS}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ STM\_COMPARE\_MATCH\_OUTPUT\_MODE\ \ \ 0}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ STM\_TIMER\_COUNTER\_MODE\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ STM\_CAPTURE\_INPUT\_MODE\ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ STM\_PWM\_OUTPUT\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ STM\_SINGLE\_PULSE\_OUTPUT\_MODE\ \ \ \ 4}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ STM\_MODE\ \ \ \ \ STM\_COMPARE\_MATCH\_OUTPUT\_MODE}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ NO\_CHANGE\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ OUTPUT\_LOW\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ OUTPUT\_HIGH\ \ \ \ \ 2}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ TOGGLE\_OUTPUT\ \ \ 3}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ PWM\ Output\ Mode/Single\ Pulse\ Output\ Mode}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ PWM\_OUTPUT\_INACTIVE\_STATE\ 0}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ PWM\_OUTPUT\_ACTIVE\_STATE\ \ \ 1}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ PWM\_OUTPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ SINGLE\_PULSE\_ACTIVE\_STATE\ 3}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ Capture\ Input\ Mode}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ INPUT\_CAPTURE\_AT\_RISING\_EDGE\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ INPUT\_CAPTURE\_AT\_FULLING\_EDGE\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ INPUT\_CAPTURE\_BOTH\_RISING\_FULLING\_EDGE\ 2}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ INPUT\_CAPTURE\_DISABLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ STM\_PIN\_FUNCTION\ \ \ \ NO\_CHANGE}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ INITIAL\_LOW\ 0}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ INITIAL\_HIGH\ 1}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ PWM\ Output\ Mode/Single\ Pulse\ Output\ Mode}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ ACTIVE\_LOW\ 0}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ ACTIVE\_HIGH\ 1}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ \ STM\_OUTPUT\_MODE\ \ INITIAL\_LOW}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ STM\_COUNTER\_OFF\ 0}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ STM\_COUNTER\_ON\ \ 1}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ STM\_COUNTER\ \ \ \ \ STM\_COUNTER\_ON}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ STM\_NON\_INVERT\ \ 0}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ STM\_INVERT\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ \ STM\_OUTPUT\_POLARITY\ STM\_NON\_INVERT}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ STM\_DUTY\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ STM\_PERIOD\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ STM\_PWM\_DUTY\ \ \ \ STM\_DUTY}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ STM\_COMPARE\_MATCH\_P\ 0}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ STM\_COMPARE\_MATCH\_A\ 1}}
+\DoxyCodeLine{00128\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ STM\_SELECT\_CLEAR\_COMPARE\_MATCH\ \ STM\_COMPARE\_MATCH\_A}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ STM\_CCRA\_LOW\_BYTE\_MASK\ 0x01\ }\textcolor{comment}{//\ Mask\ for\ STM\ CCRA\ low\ byte\ Max=0xFF\ Min=1}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ STM\_CCRA\_HIGH\_BYTE\_MASK\ 0x0\ }\textcolor{comment}{//\ Mask\ for\ STM\ CCRA\ high\ byte\ Max=0x03}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_s_t_m_8c_ae35eda58bfb7343e1393dcc08eb80afe}{STimerInit}}(\textcolor{keywordtype}{void});\ \ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_s_t_m_8c_a0dd08f57088e8e1b7e2dcee08a764da8}{readSTimer}}(\textcolor{keywordtype}{void});\ \ \ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ End\ of\ STIMER\_H}}
+
+\end{DoxyCode}

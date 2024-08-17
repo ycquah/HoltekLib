@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__b_t_m_8h_source" xml:lang="en-US">
+<title>BTM.h</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+3 <emphasis role="comment">&#32;*&#32;You&#32;may&#32;not&#32;use&#32;this&#32;file&#32;except&#32;in&#32;compliance&#32;with&#32;the&#32;License.</emphasis>
+4 <emphasis role="comment">&#32;*&#32;Obtain&#32;a&#32;copy&#32;at&#32;http://www.apache.org/licenses/LICENSE-2.0.</emphasis>
+5 <emphasis role="comment">&#32;*&#32;Distributed&#32;on&#32;an&#32;&quot;AS&#32;IS&quot;&#32;basis,&#32;without&#32;warranties&#32;or&#32;conditions.</emphasis>
+6 <emphasis role="comment">&#32;*/</emphasis>
+7 
+16 <emphasis role="preprocessor">#ifndef&#32;BTM_H</emphasis>
+17 <emphasis role="preprocessor">#define&#32;BTM_H</emphasis>
+18 
+19 <emphasis role="preprocessor">#include&#32;&quot;BA45F5240.h&quot;</emphasis>&#32;&#32;<emphasis role="comment">//&#32;Include&#32;the&#32;microcontroller-specific&#32;header&#32;file</emphasis>
+20 
+21 <emphasis role="comment">//&#32;Macros&#32;for&#32;enabling&#32;and&#32;disabling&#32;features</emphasis>
+22 <emphasis role="preprocessor">#define&#32;Enable&#32;&#32;1</emphasis>
+23 <emphasis role="preprocessor">#define&#32;Disable&#32;0</emphasis>
+24 
+25 <emphasis role="comment">//&#32;Time&#32;Base&#32;Enable&#32;Configuration</emphasis>
+26 <emphasis role="preprocessor">#define&#32;TIME_BASE0&#32;&#32;Enable</emphasis>
+27 <emphasis role="preprocessor">#define&#32;TIME_BASE1&#32;&#32;Enable</emphasis>
+28 
+29 <emphasis role="comment">//&#32;Timer&#32;Base&#32;Interrupts&#32;Status&#32;and&#32;Control</emphasis>
+30 <emphasis role="preprocessor">#define&#32;InterruptEnable&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_emi&#32;=&#32;Enable&#32;&#32;&#32;</emphasis><emphasis role="comment">//&#32;Macro&#32;to&#32;enable&#32;global&#32;interrupts</emphasis>
+31 <emphasis role="preprocessor">#define&#32;InterruptDisable&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_emi&#32;=&#32;Disable&#32;&#32;</emphasis><emphasis role="comment">//&#32;Macro&#32;to&#32;disable&#32;global&#32;interrupts</emphasis>
+32 <emphasis role="preprocessor">#define&#32;TIME_BASE0_INTERRUPT_FLAG&#32;_tb0f&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">//&#32;Interrupt&#32;flag&#32;for&#32;Time&#32;Base&#32;0</emphasis>
+33 <emphasis role="preprocessor">#define&#32;TIME_BASE1_INTERRUPT_FLAG&#32;_tb1f&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">//&#32;Interrupt&#32;flag&#32;for&#32;Time&#32;Base&#32;1</emphasis>
+34 
+35 <emphasis role="comment">//&#32;Prescaler&#32;Clock&#32;Source&#32;Selection</emphasis>
+36 <emphasis role="preprocessor">#define&#32;TB_FSYS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;</emphasis><emphasis role="comment">//&#32;fSYS</emphasis>
+37 <emphasis role="preprocessor">#define&#32;TB_FSYS_DIVIDE_4&#32;&#32;1&#32;</emphasis><emphasis role="comment">//&#32;fSYS/4</emphasis>
+38 <emphasis role="preprocessor">#define&#32;TB_FSUB&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;2&#32;</emphasis><emphasis role="comment">//&#32;fSUB</emphasis>
+39 
+40 <emphasis role="preprocessor">#define&#32;PRESCALER_CLOCK_SOURCE_BASE_TIMER&#32;&#32;&#32;TB_FSUB&#32;&#32;</emphasis><emphasis role="comment">//&#32;Define&#32;the&#32;clock&#32;source&#32;for&#32;the&#32;base&#32;timers</emphasis>
+41 
+42 <emphasis role="comment">//&#32;Time&#32;Base&#32;n&#32;Time-out&#32;Period&#32;Selection</emphasis>
+43 <emphasis role="keyword">enum</emphasis>
+44 {
+45 &#32;&#32;&#32;&#32;_256_DIVIDE_PSC&#32;,
+46 &#32;&#32;&#32;&#32;_512_DIVIDE_PSC&#32;,
+47 &#32;&#32;&#32;&#32;_1024_DIVIDE_PSC,
+48 &#32;&#32;&#32;&#32;_2048_DIVIDE_PSC,
+49 &#32;&#32;&#32;&#32;_4096_DIVIDE_PSC,
+50 &#32;&#32;&#32;&#32;_8192_DIVIDE_PSC,
+51 &#32;&#32;&#32;&#32;_16384_DIVIDE_PSC&#32;,
+52 &#32;&#32;&#32;&#32;_32768_DIVIDE_PSC,
+53 &#32;&#32;&#32;&#32;Default&#32;=&#32;0,&#32;&#32;<emphasis role="comment">//&#32;Default&#32;setting</emphasis>
+54 };
+55 
+56 <emphasis role="comment">//&#32;Define&#32;the&#32;time-out&#32;period&#32;for&#32;Time&#32;Base&#32;0&#32;and&#32;1</emphasis>
+57 <emphasis role="preprocessor">#define&#32;TIM_BASE0_PERIOD&#32;&#32;&#32;Default</emphasis>
+58 <emphasis role="preprocessor">#define&#32;TIM_BASE1_PERIOD&#32;&#32;&#32;Default</emphasis>
+59 
+71 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__b_t_m_8h_1add65a4c7fc5388f2577a62919240a296">TimerBaseInit</link>(<emphasis role="keywordtype">void</emphasis>);
+72 
+73 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;BTM_H</emphasis>
+</programlisting></section>

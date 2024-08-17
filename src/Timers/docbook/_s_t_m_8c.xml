@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__s_t_m_8c" xml:lang="en-US">
+<title>STM.c File Reference</title>
+<indexterm><primary>STM.c</primary></indexterm>
+<para>
+
+<para>Implementation of the STM (Standard Timer Module) for Holtek MCUs. This file provides functions to initialize the STM and read the timer value. Author: Mohamad Khosravi <link xlink:href="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</link> Date: 2024. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;STM.h&gt;<?linebreak?></programlisting>Include dependency graph for STM.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_s_t_m_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__s_t_m_8c_1ae35eda58bfb7343e1393dcc08eb80afe">STimerInit</link> (void)</para>
+
+<para>Initializes the Standard Timer Module (STM). </para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="__s_t_m_8c_1a0dd08f57088e8e1b7e2dcee08a764da8">readSTimer</link> (void)</para>
+
+<para>Reads the value of the Standard Timer Module (STM). </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Implementation of the STM (Standard Timer Module) for Holtek MCUs. This file provides functions to initialize the STM and read the timer value. Author: Mohamad Khosravi <link xlink:href="https://github.com/Mohamadkhosravi">https://github.com/Mohamadkhosravi</link> Date: 2024. </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__s_t_m_8c_1a0dd08f57088e8e1b7e2dcee08a764da8"/><section>
+    <title>readSTimer()</title>
+<indexterm><primary>readSTimer</primary><secondary>STM.c</secondary></indexterm>
+<indexterm><primary>STM.c</primary><secondary>readSTimer</secondary></indexterm>
+<para><computeroutput>unsigned int readSTimer (void )</computeroutput></para><para>
+
+<para>Reads the value of the Standard Timer Module (STM). </para>
+</para>
+
+<para>Reads the current value of the STM timer.</para>
+
+<para>This function reads the current value of the STM timer.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The current timer value as an unsigned integer. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__s_t_m_8c_1ae35eda58bfb7343e1393dcc08eb80afe"/><section>
+    <title>STimerInit()</title>
+<indexterm><primary>STimerInit</primary><secondary>STM.c</secondary></indexterm>
+<indexterm><primary>STM.c</primary><secondary>STimerInit</secondary></indexterm>
+<para><computeroutput>void STimerInit (void )</computeroutput></para><para>
+
+<para>Initializes the Standard Timer Module (STM). </para>
+</para>
+
+<para>Function declarations.</para>
+
+<para>This function configures the STM counter, clock, mode, and other parameters according to the specified settings.</para>
+
+<para><note><title>Note</title>
+
+<para>Ensure to define the required macros (STIMER_CLOCK, STM_PERIOD, etc.) before calling this function.</para>
+</note>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>void</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

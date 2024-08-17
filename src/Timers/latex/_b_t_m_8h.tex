@@ -1,0 +1,126 @@
+\doxysection{BTM.\+h File Reference}
+\hypertarget{_b_t_m_8h}{}\label{_b_t_m_8h}\index{BTM.h@{BTM.h}}
+
+
+Header file for Time Base 0 \& 1 control and configuration for Holtek MCUs Provides macros for enabling/disabling timers, setting interrupt flags, selecting clock sources, and configuring time-\/out periods. Author\+: Mohamad Khosravi \href{https://github.com/Mohamadkhosravi}{\texttt{ https\+://github.\+com/\+Mohamadkhosravi}} Date\+: 2024.  
+
+
+{\ttfamily \#include "{}BA45\+F5240.\+h"{}}\newline
+Include dependency graph for BTM.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_b_t_m_8h_ad8d4471f3f3d14ff352de34a29877b58}\label{_b_t_m_8h_ad8d4471f3f3d14ff352de34a29877b58} 
+\#define {\bfseries Enable}~1
+\item 
+\Hypertarget{_b_t_m_8h_a186e5d9dc989d0b79a4717545d2f8d0e}\label{_b_t_m_8h_a186e5d9dc989d0b79a4717545d2f8d0e} 
+\#define {\bfseries Disable}~0
+\item 
+\Hypertarget{_b_t_m_8h_a62bb2fed8f0a0390672870bf85172f2d}\label{_b_t_m_8h_a62bb2fed8f0a0390672870bf85172f2d} 
+\#define {\bfseries TIME\+\_\+\+BASE0}~Enable
+\item 
+\Hypertarget{_b_t_m_8h_a561f1fa85f95bb7a1ee74edbefb326c2}\label{_b_t_m_8h_a561f1fa85f95bb7a1ee74edbefb326c2} 
+\#define {\bfseries TIME\+\_\+\+BASE1}~Enable
+\item 
+\Hypertarget{_b_t_m_8h_ae89b384629195c3af1f80c99b462b6f3}\label{_b_t_m_8h_ae89b384629195c3af1f80c99b462b6f3} 
+\#define {\bfseries Interrupt\+Enable}~\+\_\+emi = Enable
+\item 
+\Hypertarget{_b_t_m_8h_a18056bffb0ada7dc00ff75ecd051a814}\label{_b_t_m_8h_a18056bffb0ada7dc00ff75ecd051a814} 
+\#define {\bfseries Interrupt\+Disable}~\+\_\+emi = Disable
+\item 
+\Hypertarget{_b_t_m_8h_af0534f758bd331e06277d35c433e8919}\label{_b_t_m_8h_af0534f758bd331e06277d35c433e8919} 
+\#define {\bfseries TIME\+\_\+\+BASE0\+\_\+\+INTERRUPT\+\_\+\+FLAG}~\+\_\+tb0f
+\item 
+\Hypertarget{_b_t_m_8h_a4ad3a67755ef4c77c226f43f6cc7b9a1}\label{_b_t_m_8h_a4ad3a67755ef4c77c226f43f6cc7b9a1} 
+\#define {\bfseries TIME\+\_\+\+BASE1\+\_\+\+INTERRUPT\+\_\+\+FLAG}~\+\_\+tb1f
+\item 
+\Hypertarget{_b_t_m_8h_ae87ec0cd68b49b526cdaacef9cde2dc7}\label{_b_t_m_8h_ae87ec0cd68b49b526cdaacef9cde2dc7} 
+\#define {\bfseries TB\+\_\+\+FSYS}~0
+\item 
+\Hypertarget{_b_t_m_8h_a694267b20eea752c6c4218b298e74e89}\label{_b_t_m_8h_a694267b20eea752c6c4218b298e74e89} 
+\#define {\bfseries TB\+\_\+\+FSYS\+\_\+\+DIVIDE\+\_\+4}~1
+\item 
+\Hypertarget{_b_t_m_8h_a722d65c5441eb31ab0fa3cf139b34095}\label{_b_t_m_8h_a722d65c5441eb31ab0fa3cf139b34095} 
+\#define {\bfseries TB\+\_\+\+FSUB}~2
+\item 
+\Hypertarget{_b_t_m_8h_ab12dc4b112a69a75bd9d777a2b57fa3f}\label{_b_t_m_8h_ab12dc4b112a69a75bd9d777a2b57fa3f} 
+\#define {\bfseries PRESCALER\+\_\+\+CLOCK\+\_\+\+SOURCE\+\_\+\+BASE\+\_\+\+TIMER}~TB\+\_\+\+FSUB
+\item 
+\Hypertarget{_b_t_m_8h_a6d8ef93d20964d5189c76fc1128e577f}\label{_b_t_m_8h_a6d8ef93d20964d5189c76fc1128e577f} 
+\#define {\bfseries TIM\+\_\+\+BASE0\+\_\+\+PERIOD}~Default
+\item 
+\Hypertarget{_b_t_m_8h_af9d3c19db67ba0f1d60c89c0bfa2badc}\label{_b_t_m_8h_af9d3c19db67ba0f1d60c89c0bfa2badc} 
+\#define {\bfseries TIM\+\_\+\+BASE1\+\_\+\+PERIOD}~Default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_b_t_m_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{_b_t_m_8h_a06fc87d81c62e9abb8790b6e5713c55b} 
+enum \{ \newline
+{\bfseries \+\_\+256\+\_\+\+DIVIDE\+\_\+\+PSC}
+, {\bfseries \+\_\+512\+\_\+\+DIVIDE\+\_\+\+PSC}
+, {\bfseries \+\_\+1024\+\_\+\+DIVIDE\+\_\+\+PSC}
+, {\bfseries \+\_\+2048\+\_\+\+DIVIDE\+\_\+\+PSC}
+, \newline
+{\bfseries \+\_\+4096\+\_\+\+DIVIDE\+\_\+\+PSC}
+, {\bfseries \+\_\+8192\+\_\+\+DIVIDE\+\_\+\+PSC}
+, {\bfseries \+\_\+16384\+\_\+\+DIVIDE\+\_\+\+PSC}
+, {\bfseries \+\_\+32768\+\_\+\+DIVIDE\+\_\+\+PSC}
+, \newline
+{\bfseries Default} = 0
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_b_t_m_8h_add65a4c7fc5388f2577a62919240a296}{Timer\+Base\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes Time Base 0 \& 1 timers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for Time Base 0 \& 1 control and configuration for Holtek MCUs Provides macros for enabling/disabling timers, setting interrupt flags, selecting clock sources, and configuring time-\/out periods. Author\+: Mohamad Khosravi \href{https://github.com/Mohamadkhosravi}{\texttt{ https\+://github.\+com/\+Mohamadkhosravi}} Date\+: 2024. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_b_t_m_8h_add65a4c7fc5388f2577a62919240a296}\index{BTM.h@{BTM.h}!TimerBaseInit@{TimerBaseInit}}
+\index{TimerBaseInit@{TimerBaseInit}!BTM.h@{BTM.h}}
+\doxysubsubsection{\texorpdfstring{TimerBaseInit()}{TimerBaseInit()}}
+{\footnotesize\ttfamily \label{_b_t_m_8h_add65a4c7fc5388f2577a62919240a296} 
+void Timer\+Base\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes Time Base 0 \& 1 timers. 
+
+This function configures the prescaler clock source, enables/disables the timers, sets the time-\/out periods, and enables global interrupts.
+
+\begin{DoxyNote}{Note}
+This function should be called before using the Time Base timers to ensure proper configuration and operation.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Initializes Time Base 0 \& 1 timers.
+
+This function configures the prescaler clock source for the timers, enables or disables the Time Base 0 and Time Base 1 timers based on pre-\/defined macros, sets their time-\/out periods, and enables global interrupts to allow the timers to trigger interrupt service routines.
+
+\begin{DoxyNote}{Note}
+This function should be called before using the Time Base timers to ensure proper configuration and operation.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

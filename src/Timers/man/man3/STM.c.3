@@ -1,0 +1,74 @@
+.TH "STM.c" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+STM.c \- Implementation of the STM (Standard Timer Module) for Holtek MCUs\&. This file provides functions to initialize the STM and read the timer value\&. Author: Mohamad Khosravi https://github.com/Mohamadkhosravi Date: 2024\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <STM\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSTimerInit\fP (void)"
+.br
+.RI "Initializes the Standard Timer Module (STM)\&. "
+.ti -1c
+.RI "unsigned int \fBreadSTimer\fP (void)"
+.br
+.RI "Reads the value of the Standard Timer Module (STM)\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implementation of the STM (Standard Timer Module) for Holtek MCUs\&. This file provides functions to initialize the STM and read the timer value\&. Author: Mohamad Khosravi https://github.com/Mohamadkhosravi Date: 2024\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "unsigned int readSTimer (void )"
+
+.PP
+Reads the value of the Standard Timer Module (STM)\&. Reads the current value of the STM timer\&.
+
+.PP
+This function reads the current value of the STM timer\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current timer value as an unsigned integer\&. 
+.RE
+.PP
+
+.SS "void STimerInit (void )"
+
+.PP
+Initializes the Standard Timer Module (STM)\&. Function declarations\&.
+
+.PP
+This function configures the STM counter, clock, mode, and other parameters according to the specified settings\&.
+
+.PP
+\fBNote\fP
+.RS 4
+Ensure to define the required macros (STIMER_CLOCK, STM_PERIOD, etc\&.) before calling this function\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

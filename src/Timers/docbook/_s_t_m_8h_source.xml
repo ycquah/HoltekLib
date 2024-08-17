@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__s_t_m_8h_source" xml:lang="en-US">
+<title>STM.h</title>
+<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;Licensed&#32;under&#32;the&#32;Apache&#32;License,&#32;Version&#32;2.0.</emphasis>
+3 <emphasis role="comment">&#32;*&#32;You&#32;may&#32;not&#32;use&#32;this&#32;file&#32;except&#32;in&#32;compliance&#32;with&#32;the&#32;License.</emphasis>
+4 <emphasis role="comment">&#32;*&#32;Obtain&#32;a&#32;copy&#32;at&#32;http://www.apache.org/licenses/LICENSE-2.0.</emphasis>
+5 <emphasis role="comment">&#32;*&#32;Distributed&#32;on&#32;an&#32;&quot;AS&#32;IS&quot;&#32;basis,&#32;without&#32;warranties&#32;or&#32;conditions.</emphasis>
+6 <emphasis role="comment">&#32;*/</emphasis>
+7 
+16 <emphasis role="preprocessor">#ifndef&#32;STIMER_H</emphasis>
+17 <emphasis role="preprocessor">#define&#32;STIMER_H</emphasis>
+18 
+19 <emphasis role="preprocessor">#include&#32;&lt;Main.h&gt;</emphasis>&#32;&#32;<emphasis role="comment">//&#32;Assuming&#32;this&#32;includes&#32;necessary&#32;main&#32;header&#32;file</emphasis>
+20 
+24 <emphasis role="preprocessor">#define&#32;ST_FSYS_DIVIDE_4&#32;&#32;&#32;0</emphasis>
+25 <emphasis role="preprocessor">#define&#32;ST_FSYS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+26 <emphasis role="preprocessor">#define&#32;ST_FH_DIVIDE_16&#32;&#32;&#32;&#32;2</emphasis>
+27 <emphasis role="preprocessor">#define&#32;ST_FH_DIVIDE_64&#32;&#32;&#32;&#32;3</emphasis>
+28 <emphasis role="preprocessor">#define&#32;ST_FSUB1&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;4</emphasis>
+29 <emphasis role="preprocessor">#define&#32;ST_FSUB2&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;5</emphasis>
+30 <emphasis role="preprocessor">#define&#32;ST_STCK_RISING&#32;&#32;&#32;&#32;&#32;6</emphasis>
+31 <emphasis role="preprocessor">#define&#32;ST_STCK_FALLING&#32;&#32;&#32;&#32;7</emphasis>
+32 <emphasis role="comment">//=========================================================================</emphasis>
+33 <emphasis role="preprocessor">#define&#32;STIMER_CLOCK&#32;&#32;&#32;&#32;ST_FSYS</emphasis>
+34 <emphasis role="comment">//=========================================================================</emphasis>
+35 
+39 <emphasis role="preprocessor">#define&#32;STM_1024_CLOCKS&#32;0</emphasis>
+40 <emphasis role="preprocessor">#define&#32;STM_128_CLOCKS&#32;&#32;1</emphasis>
+41 <emphasis role="preprocessor">#define&#32;STM_256_CLOCKS&#32;&#32;2</emphasis>
+42 <emphasis role="preprocessor">#define&#32;STM_384_CLOCKS&#32;&#32;3</emphasis>
+43 <emphasis role="preprocessor">#define&#32;STM_512_CLOCKS&#32;&#32;4</emphasis>
+44 <emphasis role="preprocessor">#define&#32;STM_640_CLOCKS&#32;&#32;5</emphasis>
+45 <emphasis role="preprocessor">#define&#32;STM_768_CLOCKS&#32;&#32;6</emphasis>
+46 <emphasis role="preprocessor">#define&#32;STM_896_CLOCKS&#32;&#32;7</emphasis>
+47 <emphasis role="comment">//=========================================================================</emphasis>
+48 <emphasis role="preprocessor">#define&#32;STM_PERIOD&#32;&#32;&#32;&#32;STM_1024_CLOCKS</emphasis>
+49 <emphasis role="comment">//=========================================================================</emphasis>
+50 
+54 <emphasis role="preprocessor">#define&#32;STM_COMPARE_MATCH_OUTPUT_MODE&#32;&#32;&#32;0</emphasis>
+55 <emphasis role="preprocessor">#define&#32;STM_TIMER_COUNTER_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+56 <emphasis role="preprocessor">#define&#32;STM_CAPTURE_INPUT_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;2</emphasis>
+57 <emphasis role="preprocessor">#define&#32;STM_PWM_OUTPUT_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;3</emphasis>
+58 <emphasis role="preprocessor">#define&#32;STM_SINGLE_PULSE_OUTPUT_MODE&#32;&#32;&#32;&#32;4</emphasis>
+59 <emphasis role="comment">//=========================================================================</emphasis>
+60 <emphasis role="preprocessor">#define&#32;STM_MODE&#32;&#32;&#32;&#32;&#32;STM_COMPARE_MATCH_OUTPUT_MODE</emphasis>
+61 <emphasis role="comment">//=========================================================================</emphasis>
+62 
+66 <emphasis role="preprocessor">#define&#32;NO_CHANGE&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+67 <emphasis role="preprocessor">#define&#32;OUTPUT_LOW&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+68 <emphasis role="preprocessor">#define&#32;OUTPUT_HIGH&#32;&#32;&#32;&#32;&#32;2</emphasis>
+69 <emphasis role="preprocessor">#define&#32;TOGGLE_OUTPUT&#32;&#32;&#32;3</emphasis>
+70 <emphasis role="comment">//&#32;PWM&#32;Output&#32;Mode/Single&#32;Pulse&#32;Output&#32;Mode</emphasis>
+71 <emphasis role="preprocessor">#define&#32;PWM_OUTPUT_INACTIVE_STATE&#32;0</emphasis>
+72 <emphasis role="preprocessor">#define&#32;PWM_OUTPUT_ACTIVE_STATE&#32;&#32;&#32;1</emphasis>
+73 <emphasis role="preprocessor">#define&#32;PWM_OUTPUT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;2</emphasis>
+74 <emphasis role="preprocessor">#define&#32;SINGLE_PULSE_ACTIVE_STATE&#32;3</emphasis>
+75 <emphasis role="comment">//&#32;Capture&#32;Input&#32;Mode</emphasis>
+76 <emphasis role="preprocessor">#define&#32;INPUT_CAPTURE_AT_RISING_EDGE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+77 <emphasis role="preprocessor">#define&#32;INPUT_CAPTURE_AT_FULLING_EDGE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+78 <emphasis role="preprocessor">#define&#32;INPUT_CAPTURE_BOTH_RISING_FULLING_EDGE&#32;2</emphasis>
+79 <emphasis role="preprocessor">#define&#32;INPUT_CAPTURE_DISABLE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;3</emphasis>
+80 <emphasis role="comment">//=========================================================================</emphasis>
+81 <emphasis role="preprocessor">#define&#32;STM_PIN_FUNCTION&#32;&#32;&#32;&#32;NO_CHANGE</emphasis>
+82 <emphasis role="comment">//=========================================================================</emphasis>
+83 
+87 <emphasis role="preprocessor">#define&#32;INITIAL_LOW&#32;0</emphasis>
+88 <emphasis role="preprocessor">#define&#32;INITIAL_HIGH&#32;1</emphasis>
+89 <emphasis role="comment">//&#32;PWM&#32;Output&#32;Mode/Single&#32;Pulse&#32;Output&#32;Mode</emphasis>
+90 <emphasis role="preprocessor">#define&#32;ACTIVE_LOW&#32;0</emphasis>
+91 <emphasis role="preprocessor">#define&#32;ACTIVE_HIGH&#32;1</emphasis>
+92 <emphasis role="comment">//=========================================================================</emphasis>
+93 <emphasis role="preprocessor">#define&#32;&#32;STM_OUTPUT_MODE&#32;&#32;INITIAL_LOW</emphasis>
+94 <emphasis role="comment">//=========================================================================</emphasis>
+95 
+99 <emphasis role="preprocessor">#define&#32;STM_COUNTER_OFF&#32;0</emphasis>
+100 <emphasis role="preprocessor">#define&#32;STM_COUNTER_ON&#32;&#32;1</emphasis>
+101 <emphasis role="comment">//=========================================================================</emphasis>
+102 <emphasis role="preprocessor">#define&#32;STM_COUNTER&#32;&#32;&#32;&#32;&#32;STM_COUNTER_ON</emphasis>
+103 <emphasis role="comment">//=========================================================================</emphasis>
+104 
+108 <emphasis role="preprocessor">#define&#32;STM_NON_INVERT&#32;&#32;0</emphasis>
+109 <emphasis role="preprocessor">#define&#32;STM_INVERT&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+110 <emphasis role="comment">//=========================================================================</emphasis>
+111 <emphasis role="preprocessor">#define&#32;&#32;STM_OUTPUT_POLARITY&#32;STM_NON_INVERT</emphasis>
+112 <emphasis role="comment">//=========================================================================</emphasis>
+113 
+117 <emphasis role="preprocessor">#define&#32;STM_DUTY&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+118 <emphasis role="preprocessor">#define&#32;STM_PERIOD&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+119 <emphasis role="comment">//=========================================================================</emphasis>
+120 <emphasis role="preprocessor">#define&#32;STM_PWM_DUTY&#32;&#32;&#32;&#32;STM_DUTY</emphasis>
+121 <emphasis role="comment">//=========================================================================</emphasis>
+122 
+126 <emphasis role="preprocessor">#define&#32;STM_COMPARE_MATCH_P&#32;0</emphasis>
+127 <emphasis role="preprocessor">#define&#32;STM_COMPARE_MATCH_A&#32;1</emphasis>
+128 <emphasis role="comment">//=========================================================================</emphasis>
+129 <emphasis role="preprocessor">#define&#32;STM_SELECT_CLEAR_COMPARE_MATCH&#32;&#32;STM_COMPARE_MATCH_A</emphasis>
+130 <emphasis role="comment">//=========================================================================</emphasis>
+131 
+135 <emphasis role="preprocessor">#define&#32;STM_CCRA_LOW_BYTE_MASK&#32;0x01&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;STM&#32;CCRA&#32;low&#32;byte&#32;Max=0xFF&#32;Min=1</emphasis>
+136 <emphasis role="comment">//=========================================================================</emphasis>
+137 
+141 <emphasis role="preprocessor">#define&#32;STM_CCRA_HIGH_BYTE_MASK&#32;0x0&#32;</emphasis><emphasis role="comment">//&#32;Mask&#32;for&#32;STM&#32;CCRA&#32;high&#32;byte&#32;Max=0x03</emphasis>
+142 <emphasis role="comment">//=========================================================================</emphasis>
+143 
+148 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__s_t_m_8c_1ae35eda58bfb7343e1393dcc08eb80afe">STimerInit</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;
+149 <emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__s_t_m_8c_1a0dd08f57088e8e1b7e2dcee08a764da8">readSTimer</link>(<emphasis role="keywordtype">void</emphasis>);&#32;&#32;&#32;
+151 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">//&#32;End&#32;of&#32;STIMER_H</emphasis>
+</programlisting></section>

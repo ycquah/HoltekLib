@@ -1,0 +1,59 @@
+\doxysection{BTM.\+h}
+\hypertarget{_b_t_m_8h_source}{}\label{_b_t_m_8h_source}\mbox{\hyperlink{_b_t_m_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ You\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Obtain\ a\ copy\ at\ http://www.apache.org/licenses/LICENSE-\/2.0.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Distributed\ on\ an\ "{}AS\ IS"{}\ basis,\ without\ warranties\ or\ conditions.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ BTM\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ BTM\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}BA45F5240.h"{}}\ \ \textcolor{comment}{//\ Include\ the\ microcontroller-\/specific\ header\ file}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Macros\ for\ enabling\ and\ disabling\ features}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ Enable\ \ 1}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ Disable\ 0}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Time\ Base\ Enable\ Configuration}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ TIME\_BASE0\ \ Enable}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ TIME\_BASE1\ \ Enable}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Timer\ Base\ Interrupts\ Status\ and\ Control}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ InterruptEnable\ \ \ \ \ \ \ \ \ \ \_emi\ =\ Enable\ \ \ }\textcolor{comment}{//\ Macro\ to\ enable\ global\ interrupts}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ InterruptDisable\ \ \ \ \ \ \ \ \ \_emi\ =\ Disable\ \ }\textcolor{comment}{//\ Macro\ to\ disable\ global\ interrupts}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ TIME\_BASE0\_INTERRUPT\_FLAG\ \_tb0f\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Interrupt\ flag\ for\ Time\ Base\ 0}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ TIME\_BASE1\_INTERRUPT\_FLAG\ \_tb1f\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Interrupt\ flag\ for\ Time\ Base\ 1}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Prescaler\ Clock\ Source\ Selection}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ TB\_FSYS\ \ \ \ \ \ \ \ \ \ \ 0\ }\textcolor{comment}{//\ fSYS}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ TB\_FSYS\_DIVIDE\_4\ \ 1\ }\textcolor{comment}{//\ fSYS/4}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ TB\_FSUB\ \ \ \ \ \ \ \ \ \ \ 2\ }\textcolor{comment}{//\ fSUB}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ PRESCALER\_CLOCK\_SOURCE\_BASE\_TIMER\ \ \ TB\_FSUB\ \ }\textcolor{comment}{//\ Define\ the\ clock\ source\ for\ the\ base\ timers}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Time\ Base\ n\ Time-\/out\ Period\ Selection}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \_256\_DIVIDE\_PSC\ ,}
+\DoxyCodeLine{00046\ \ \ \ \ \_512\_DIVIDE\_PSC\ ,}
+\DoxyCodeLine{00047\ \ \ \ \ \_1024\_DIVIDE\_PSC,}
+\DoxyCodeLine{00048\ \ \ \ \ \_2048\_DIVIDE\_PSC,}
+\DoxyCodeLine{00049\ \ \ \ \ \_4096\_DIVIDE\_PSC,}
+\DoxyCodeLine{00050\ \ \ \ \ \_8192\_DIVIDE\_PSC,}
+\DoxyCodeLine{00051\ \ \ \ \ \_16384\_DIVIDE\_PSC\ ,}
+\DoxyCodeLine{00052\ \ \ \ \ \_32768\_DIVIDE\_PSC,}
+\DoxyCodeLine{00053\ \ \ \ \ Default\ =\ 0,\ \ \textcolor{comment}{//\ Default\ setting}}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ Define\ the\ time-\/out\ period\ for\ Time\ Base\ 0\ and\ 1}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ TIM\_BASE0\_PERIOD\ \ \ Default}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ TIM\_BASE1\_PERIOD\ \ \ Default}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_b_t_m_8h_add65a4c7fc5388f2577a62919240a296}{TimerBaseInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BTM\_H}}
+
+\end{DoxyCode}
