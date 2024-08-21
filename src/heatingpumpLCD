@@ -1,0 +1,322 @@
+#include <HT66F2390.h>
+#include "metype.h"	
+#include "delay.h"	
+#include "lcd1602.h"		
+#include "EEPROM.h"
+#include "scankey.h"
+#include "DHT11.h"
+#include "esp8266.h"
+#include "stm2.h"
+#include "uart.h"
+
+void lcdinitial();
+void functionzu(uchar x);
+void beeptiom();
+void perform();
+
+
+uchar hour=19,min=28,temph=50,templ=20,rhh=80,rhl=30;
+volatile uchar Digit1[]={0,0};
+volatile uchar Digit2[]={0,0};
+volatile uchar Digit3[]={0,0};
+volatile uchar Digit4[]={0,0};
+			
+void main()
+{	
+	volatile uchar Key,keyz;
+	_wdtc=0b10101111;         //关狗
+	lcdc=0x0; rwc=0;  prsc=0;  pec=0;              //d端口为输出模式
+	beepc=0;heatingc=0;pump1c=0;pump2c=0;
+	ledY=0;ledB=0;
+	ledYC=0; ledBC=0;                   //c端口为输出模式                  
+	LCD_init();	delayms(500);
+	LCD_wr_string(0,0,"Starting up ...");
+	beep=0; 	delayms(200);   beep=1;        //检测蜂鸣器是否工作
+
+		Save_data();
+		perform();
+		_eeah=StartADRS1>>8;					//设置位地址EEA
+		_eeal=(uchar)StartADRS1;				
+		Read4Byte(Digit1);					//由EEPROM读回存储值
+		_eeah=StartADRS2>>8;					//设置位地址EEA
+		_eeal=(uchar)StartADRS2;				
+		Read4Byte(Digit2);					//由EEPROM读回存储值
+		_eeah=StartADRS3>>8;					//设置位地址EEA
+		_eeal=(uchar)StartADRS3;				
+		Read4Byte(Digit3);					//由EEPROM读回存储值
+		_eeah=StartADRS4>>8;					//设置位地址EEA
+		_eeal=(uchar)StartADRS4;				
+		Read4Byte(Digit4);					//由EEPROM读回存储值
+
+		
+	uart_init();
+	delayms(100);
+	Esp8266_Sta_Mode();
+	Tcp_Connect();
+	time2_Init();
+	LCD_Clear();
+	while(1)
+	{
+
+		do 
+		{	
+			lcdinitial();
+			beeptiom ();
+			perform();
+			Key=ScanKey();							//检查按键
+			ledY=1;delayms(50);					//Blue LED闪烁控制
+			Send_Heart();
+			Up_Report() ;
+		} 
+		while (Key==16);							//若按键没有按压，持续循环
+/*		ledB=0; 										*/
+		while(ScanKey()!=16); delayms(100);			//等待按键释放
+		keyz=Keyzh(Key);											//熄灭Bule LED
+	    functionzu(keyz);
+	}
+}
+
+
+
+
+/*初始界面进行显示*/
+void lcdinitial()
+{
+	
+
+		Save_data();
+		delayms(50);
+		LCD_wr_string(0, 0, "temp: ");
+		LCD_wr_time(6, 0, TH%100/10+48);
+		LCD_wr_time(7, 0, TH%10+48);
+		LCD_wr_string(8, 0, "C");
+		LCD_wr_string(0, 1, "rh  : ");
+		LCD_wr_time(6, 1,RH%100/10+48);
+		LCD_wr_time(7, 1,RH%10+48);					
+		LCD_wr_string(8, 1, "%");
+	
+}
+
+/*按键功能的配置*/
+void functionzu(uchar x)
+
+{
+	volatile uchar i,keyz,Key;
+		keyz=x;
+		
+		switch (keyz)	
+		{	case 0x0a:						//按压A按键时,显示最高温度
+				LCD_Clear();//清屏
+/*				ledY=1;   //点亮黄灯    */
+				delayms(10);
+				LCD_wr_string(0, 0, "temph: ");
+				LCD_wr_string(9, 0, "C");
+				for(i=0;i<2;i++)					//等待输入两个按键值
+				{	
+
+					do 
+					Key=ScanKey();
+					while (Key>15);//等待0-9按键按压
+					keyz=Keyzh(Key);
+					Digit1[i]=keyz;					//显示按键值
+					LCD_wr_time(7+i,0, keyz%10+48);    //选择位置写数据(数值)
+					delayms(300);
+													//延时0.3 Sec
+				}	
+				_eeah=StartADRS1>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS1;				
+				Write4Byte(Digit1);					//输入键值存放到EEPROM
+				delayms(3000);
+/*				ledY=0;								//熄灭Red LED*/
+	LCD_Clear();//清屏
+				break;
+				
+			case 0x0b:						//按压B按键时，显示最低温度
+				LCD_Clear();//清屏
+/*				ledY=1;   //点亮黄灯    */
+				delayms(10);
+				LCD_wr_string(0, 0, "templ: ");
+				LCD_wr_string(9, 0, "C");
+				for(i=0;i<2;i++)					//等待输入两个按键值
+				{	
+
+					do 
+					Key=ScanKey();
+					while (Key>15);//等待0-9按键按压
+					keyz=Keyzh(Key);
+					Digit2[i]=keyz;					//显示按键值
+					LCD_wr_time(7+i,0, keyz%10+48);    //选择位置写数据(数值)
+					delayms(300);
+													//延时0.3 Sec
+				}	
+				_eeah=StartADRS2>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS2;				
+				Write4Byte(Digit2);					//输入键值存放到EEPROM
+				delayms(3000);
+/*				ledY=0;								//熄灭Red LED*/
+	LCD_Clear();//清屏
+				break;	
+			case 0x0c:						//按压C按键时，显示最高湿度
+				LCD_Clear();//清屏
+/*				ledY=1;   //点亮黄灯    */
+				delayms(10);
+				LCD_wr_string(0, 0, "rhh : ");
+				LCD_wr_string(8, 0, "%");
+				for(i=0;i<2;i++)					//等待输入两个按键值
+				{	
+
+					do 
+					Key=ScanKey();
+					while (Key>15);//等待0-9按键按压
+					keyz=Keyzh(Key);
+					Digit3[i]=keyz;					//显示按键值
+					LCD_wr_time(6+i,0, keyz%10+48);    //选择位置写数据(数值)
+					delayms(300);
+													//延时0.3 Sec
+				}	
+				_eeah=StartADRS3>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS3;				
+				Write4Byte(Digit3);					//输入键值存放到EEPROM
+				delayms(3000);
+/*				ledY=0;								//熄灭Red LED*/
+	LCD_Clear();//清屏
+				break;	
+			case 0x0d:						//按压D按键时，显示最低湿度
+				LCD_Clear();//清屏
+/*				ledY=1;   //点亮黄灯    */
+				delayms(10);
+				LCD_wr_string(0, 0, "rhl : ");
+				LCD_wr_string(8, 0, "%");
+				for(i=0;i<2;i++)					//等待输入两个按键值
+				{	
+
+					do 
+					Key=ScanKey();
+					while (Key>15);//等待0-9按键按压
+					keyz=Keyzh(Key);
+					Digit4[i]=keyz;					//显示按键值
+					LCD_wr_time(6+i,0, keyz%10+48);    //选择位置写数据(数值)
+					delayms(300);
+													//延时0.3 Sec
+				}	
+				_eeah=StartADRS4>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS4;				
+				Write4Byte(Digit4);					//输入键值存放到EEPROM
+				delayms(3000);
+/*				ledY=0;								//熄灭Red LED*/
+	LCD_Clear();//清屏
+				break;
+				
+/*显示部分  井号显示温度 星号显示湿度	*/
+			case 0x0e:
+				LCD_Clear();
+/*				ledY=1;*/
+				
+				delayms(100);
+					
+				_eeah=StartADRS1>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS1;				
+				Read4Byte(Digit1);					//由EEPROM读回存储值
+				_eeah=StartADRS2>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS2;				
+				Read4Byte(Digit2);					//由EEPROM读回存储值
+				delayms(200);
+				for(i=0;i<2;i++) 						//延迟2 Sec
+				{LCD_wr_string(0, 0, "temph: ");
+				LCD_wr_time(7+i, 0, Digit1[i]%10+48);
+				LCD_wr_string(9, 0, "C");
+				}
+				for(i=0;i<2;i++) 						//延迟2 Sec
+				{LCD_wr_string(0, 1, "templ: ");
+				LCD_wr_time(7+i, 1, Digit2[i]%10+48);
+				LCD_wr_string(9, 1, "C");
+				}				
+				delayms(3000);
+/*				ledY=0;*/
+	LCD_Clear();//清屏
+				break;	
+			/*显示部分  井号显示温度 星号显示湿度	*/
+			case 0x0f:
+				LCD_Clear();
+/*				ledY=1;*/
+				delayms(100);
+					
+				_eeah=StartADRS3>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS3;				
+				Read4Byte(Digit3);					//由EEPROM读回存储值
+				_eeah=StartADRS4>>8;					//设置位地址EEA
+				_eeal=(uchar)StartADRS4;				
+				Read4Byte(Digit4);					//由EEPROM读回存储值
+				delayms(200);
+				for(i=0;i<2;i++) 						//延迟2 Sec
+				{LCD_wr_string(0, 0, "rhh : "); 
+				LCD_wr_time(6+i, 0, Digit3[i]%10+48);
+				LCD_wr_string(8, 0, "%");
+				}
+				for(i=0;i<2;i++) 						//延迟2 Sec
+				{LCD_wr_string(0, 1, "rhl : ");
+				LCD_wr_time(6+i, 1, Digit4[i]%10+48);
+				LCD_wr_string(8, 1, "%");
+				}				
+				delayms(3000);
+/*				ledY=0;*/
+	LCD_Clear();//清屏
+				
+				break;	
+				
+				
+		}		
+					
+}
+
+	
+void beeptiom ()
+{
+ 	
+ 	temph=Digit1[0]*10+Digit1[1];
+ 	templ=Digit2[0]*10+Digit2[1]; 	
+ 	rhh=Digit3[0]*10+Digit3[1];
+ 	rhl=Digit4[0]*10+Digit4[1];
+ 	if(TH>temph || RH>rhh)
+	{
+		beep=0;
+		}
+	if(TH<templ || RH<rhl)
+	{
+		beep=0;
+		}
+	if(TH<temph && RH<rhh && TH>templ && RH>rhl)
+	{
+		beep=1;
+		}
+
+	}
+	
+	
+void perform()
+{
+	
+	
+	
+	if(TH>temph)//冷却 启动水泵1
+	{
+		pump1=1;
+		}
+	if(TH<templ)//加热 启动热水泵 和水泵1
+	{
+		heating=1;
+		pump1=1;
+
+	}
+	if(RH<rhl)// 加湿 启动水泵2
+	{
+		pump2=1;
+		
+		}
+	if(TH<temph && RH<rhh && TH>templ && RH>rhl)//全部关闭
+	{
+		pump1=0;
+		pump2=0;
+		heating=0;
+		}
+}
